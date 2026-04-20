@@ -24,7 +24,54 @@ function copyCustom(text){navigator.clipboard.writeText(text);toast()}
 function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let p=n.split(' ');t.innerHTML+=`<tr><td>${n}</td><td><button onclick="copyCustom('${n}')">Full</button><button onclick="copyCustom('${p[0]}')">Front</button><button onclick="copyCustom('${p.slice(1).join(' ')}')">Back</button></td></tr>`})}
 </script>
 
-  <center><h2>Daftar Isi</h2></center>
+  <center><h1 id="daftarisi">Daftar Isi</h1></center>
+  <h2><a href="#kingindo">INDONESIA</a></h2>
+  <ul>
+    <a href="#b1"><li>Daftar Kontak</li></a>
+    <a href="#b2"><li>Nama Wanita</li></a>
+    <a href="#b3"><li>Nama Pria</li></a>
+    <a href="#b4"><li>Nama Bisnis</li></a>
+    <ul>
+      <li>Perbankan, keuangan, dan asuransi</li>
+      <li>Agama dan peribadatan</li>
+      <li>Makanan dan Minuman</li>
+      <li>Pelayanan Kesehatan</li>
+      <li>Properti, komersial, retal dan ruang publik</li>
+      <li>Teknologidan perangkat lunak</li>
+      <li>Kesehatan, kebugaran dan gaya hidup</li>
+      <li>Kecantikan</li>
+      <li>Fashion/pakaian</li>
+      <li>Ritel umum</li>
+      <li>Pemasaran, periklanan, desain, dan humas</li>
+      <li>Sekolah dan pendidikan</li>
+      <li>Perjalanan dan pariwisata</li>
+    </ul>
+  </ul>
+  <h2><a href="#raiso">INGGRIS</a></h2>
+    <ul>
+    <a href="#bb1"><li>Contact Data</li></a>
+    <a href="#bb2"><li>Female Name</li></a>
+    <a href="#bb3"><li>Male Name</li></a>
+    <a href="#bb4"><li>Business Name</li></a>
+    <ul>
+      <li>Banking Finance Insurance</li>
+      <li>Faith and Worship</li>
+      <li>Food and Beverages</li>
+      <li>Healthcare</li>
+      <li>Content Media and Entertainment</li>
+      <li>Other</li>
+      <li>Schools and Education</li>
+      <li>Travel and Tourism</li>
+      <li>Beauty</li>
+      <li>Fashion and General Apparel</li>
+      <li>General Retail</li>
+      <li>Marketing, Advertising, Design, and PR</li>
+      <li>Not-for-profits</li>
+      <li>Real Estate, Commercial, Rental, and Public Spaces</li>
+      <li>Technology and Software</li>
+      <li>Wellness, Fitness, and Lifestyle</li>
+    </ul>
+  </ul>
   
 <table border="1" cellspacing="0" cellpadding="7">
   <center><h2>Ketentuan Ukuran Font</h2></center>
@@ -101,9 +148,9 @@ function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let 
   <center><p>Jika gambar tidak tampil, silahkan <a href="https://drive.google.com/file/d/1hzSihg4dqofqnhWusYuujS9JUk6po-AA/view?usp=sharing" target="_blank">Klik Ini</a></p></center>
   <center><img src="https://i.ibb.co.com/0yJdkJ4B/Canva-Ipsum.png" width="600" height="270"></center>
 
-<div style="color:red"><center><h1>INDONESIA</h1> </center></div>
+<a href="#daftarisi"><div style="color:red"><center><h1 id="kingindo">INDONESIA</h1> </center></div></a>
 
-<h2>Data Kontak</h2>
+<a href="#daftarisi"><h2 id="b1">Data Kontak</h2></a>
 <table>
 <tr><td>No Telepon</td><td id="id1">62-819-9977-3020</td><td><button onclick="copyText('id1')">Copy</button></td></tr>
 <tr><td>No Ponsel</td><td id="id2">021 123 456 7890</td><td><button onclick="copyText('id2')">Copy</button></td></tr>
@@ -120,19 +167,19 @@ function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let 
   <strong>Catatan:</strong> Anda dapat menggunakan kombinasi angka 0-9 dengan urutan naik untuk menghasilkan detail yang aman digunakan untuk berbagai keperluan, seperti nomor rekening, faktur, atau kartu kredit.
 </div>
 
-<h2>Nama Wanita Indonesia</h2>
+<a href="#daftarisi"><h2 id="b2">Nama Wanita</h2></a>
 <table id="id_wanita"></table>
-<h2>Nama Pria Indonesia</h2>
+<a href="#daftarisi"><h2 id="b3">Nama Pria</h2></a>
 <table id="id_pria"></table>
 
-<h2>Nama Bisnis Indonesia</h2>
+<a href="#daftarisi"><h2 id="b4">Nama Bisnis</h2></a>
 <table id="id_bisnis"></table>
 
 <br><br>
-<div style="color:blue"><center><h1>ENGLISH</h1> </center></div>
+<a href="#daftarisi"><div style="color:blue"><center><h1 id="raiso">ENGLISH</h1> </center></div></a>
 <br><br>
 
-<h2>Contact Data</h2>
+<a href="#daftarisi"><h2 id="bb1">Contact Data</h2></a>
 <table>
 <tr><td>Phone</td><td>123-456-7890</td><td><button onclick="copyCustom('123-456-7890')">Copy</button></td></tr>
 <tr><td>Mobile</td><td>+123-456-7890</td><td><button onclick="copyCustom('+123-456-7890')">Copy</button></td></tr>
@@ -149,11 +196,11 @@ function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let 
   <strong>Catatan:</strong> Anda dapat menggunakan kombinasi angka 0-9 dengan urutan naik untuk menghasilkan detail yang aman digunakan untuk berbagai keperluan, seperti nomor rekening, faktur, atau kartu kredit.
 </div>
 
-<h2>Female Names</h2>
+<a href="#daftarisi"><h2 id="bb2">Female Name</h2></a>
 <table id="en_wanita"></table>
-<h2>Male Names</h2>
+<a href="#daftarisi"><h2 id="bb3">Male Name</h2></a>
 <table id="en_pria"></table>
-<h2>Business English</h2>
+<a href="#daftarisi"><h2 id="bb4">Business Name</h2></a>
 <table id="en_bisnis"></table>
 
 <script>
