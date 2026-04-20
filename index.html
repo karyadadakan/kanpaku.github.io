@@ -24,6 +24,8 @@ function copyCustom(text){navigator.clipboard.writeText(text);toast()}
 function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let p=n.split(' ');t.innerHTML+=`<tr><td>${n}</td><td><button onclick="copyCustom('${n}')">Full</button><button onclick="copyCustom('${p[0]}')">Front</button><button onclick="copyCustom('${p.slice(1).join(' ')}')">Back</button></td></tr>`})}
 </script>
 
+  <center><h2>Daftar Isi</h2></center>
+  
 <table border="1" cellspacing="0" cellpadding="7">
   <center><h2>Ketentuan Ukuran Font</h2></center>
   <tr>
