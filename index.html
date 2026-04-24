@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <title>Ipsum Kanpa</title>
 <style>
+<a href="#daftarisi" id="backToTop"
+style=
+
 body{font-family:Arial;padding:20px}
 h1{margin-top:40px}
 table{border-collapse:collapse;width:100%;margin-bottom:20px}
@@ -13,6 +16,23 @@ button{padding:5px 8px;cursor:pointer}
 #toast{position:fixed;bottom:20px;right:20px;background:black;color:#fff;padding:10px;border-radius:5px;opacity:0;transition:.3s}
 </style>
 </head>
+<a href="#daftarisi" id="backToTop"
+style="
+position:fixed;
+top:10px;
+left:50%;
+transform:translateX(-50%);
+background:black;
+color:white;
+padding:8px 15px;
+border-radius:6px;
+text-decoration:none;
+z-index:999;
+font-size:14px;
+display:none;
+">
+⬆ Kembali ke Atas
+</a>
 <body>
 
 <div id="toast">Berhasil disalin</div>
@@ -22,59 +42,101 @@ function toast(){let t=document.getElementById('toast');t.style.opacity=1;setTim
 function copyText(id){navigator.clipboard.writeText(document.getElementById(id).innerText);toast()}
 function copyCustom(text){navigator.clipboard.writeText(text);toast()}
 function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let p=n.split(' ');t.innerHTML+=`<tr><td>${n}</td><td><button onclick="copyCustom('${n}')">Full</button><button onclick="copyCustom('${p[0]}')">Front</button><button onclick="copyCustom('${p.slice(1).join(' ')}')">Back</button></td></tr>`})}
+function hitungMetadata(){
+  let input = document.getElementById("inputMeta").value;
+
+  let data = input.split(",");
+  let metadata = data.map(x => x.trim()).filter(x => x !== "");
+
+  document.getElementById("jumlahMeta").innerText = metadata.length;
+}
+let timer;
+
+window.addEventListener("scroll", function() {
+  let btn = document.getElementById("backToTop");
+
+  // tampilkan saat scroll
+  btn.style.display = "block";
+
+  // reset timer
+  clearTimeout(timer);
+
+  // hilangkan setelah berhenti scroll 1 detik
+  timer = setTimeout(() => {
+    btn.style.display = "none";
+  }, 1500);
+});
+
 </script>
 
-  <center><h1 id="daftarisi">Daftar Isi</h1></center>
-  <h2><a href="#kingindo">INDONESIA</a></h2>
+  <center><h1 id="daftarisi">DAFTAR ISI</h1></center>
+  <h2>Ketentuan</h2>
   <ul>
-    <a href="#b1"><li>Daftar Kontak</li></a>
-    <a href="#b2"><li>Nama Wanita</li></a>
-    <a href="#b3"><li>Nama Pria</li></a>
-    <a href="#b4"><li>Nama Bisnis</li></a>
-    <ul>
-      <li>Perbankan, keuangan, dan asuransi</li>
-      <li>Agama dan peribadatan</li>
-      <li>Makanan dan Minuman</li>
-      <li>Pelayanan Kesehatan</li>
-      <li>Properti, komersial, retal dan ruang publik</li>
-      <li>Teknologidan perangkat lunak</li>
-      <li>Kesehatan, kebugaran dan gaya hidup</li>
-      <li>Kecantikan</li>
-      <li>Fashion/pakaian</li>
-      <li>Ritel umum</li>
-      <li>Pemasaran, periklanan, desain, dan humas</li>
-      <li>Sekolah dan pendidikan</li>
-      <li>Perjalanan dan pariwisata</li>
-    </ul>
+    <li><a href="#jk1">Ketentuan ukuran font</a></li>
+    <li><a href="#jk2">Format tanggal, waktu dan harga</a></li>
+    <li><a href="#jk3">Penghitung metadata</a></li>
   </ul>
-  <h2><a href="#raiso">INGGRIS</a></h2>
+<div style="display:flex;gap:40px;justify-content:center;align-items:flex-start">
+
+  <!-- KIRI (INDONESIA) -->
+  <div style="width:45%">
+    <h2>INDONESIA</h2>
     <ul>
-    <a href="#bb1"><li>Contact Data</li></a>
-    <a href="#bb2"><li>Female Name</li></a>
-    <a href="#bb3"><li>Male Name</li></a>
-    <a href="#bb4"><li>Business Name</li></a>
-    <ul>
-      <li>Banking Finance Insurance</li>
-      <li>Faith and Worship</li>
-      <li>Food and Beverages</li>
-      <li>Healthcare</li>
-      <li>Content Media and Entertainment</li>
-      <li>Other</li>
-      <li>Schools and Education</li>
-      <li>Travel and Tourism</li>
-      <li>Beauty</li>
-      <li>Fashion and General Apparel</li>
-      <li>General Retail</li>
-      <li>Marketing, Advertising, Design, and PR</li>
-      <li>Not-for-profits</li>
-      <li>Real Estate, Commercial, Rental, and Public Spaces</li>
-      <li>Technology and Software</li>
-      <li>Wellness, Fitness, and Lifestyle</li>
+      <li><a href="#b1">Data Kontak</a></li>
+      <li><a href="#b2">Nama Wanita</a></li>
+      <li><a href="#b3">Nama Pria</a></li>
+      <li><a href="#b4">Nama Bisnis</a></li>
+      <ul>
+        <li><a href="#as1">Perbankan, keuangan, dan asuransi</a></li>
+        <li><a href="#as2">Agama dan peribadatan</a></li>
+        <li><a href="#as3">Makanan dan Minuman</a></li>
+        <li><a href="#as4">Pelayanan Kesehatan</a></li>
+        <li><a href="#as5">Properti, komersial, retal dan ruang publik</a></li>
+        <li><a href="#as6">Teknologi dan perangkat lunak</a></li>
+        <li><a href="#as7">Kesehatan, kebugaran dan gaya hidup</a></li>
+        <li><a href="#as8">Kecantikan</a></li>
+        <li><a href="#as9">Fashion/pakaian</a></li>
+        <li><a href="#as10">Ritel umum</a></li>
+        <li><a href="#as11">Pemasaran, periklanan, desain, dan humas</a></li>
+        <li><a href="#as12">Sekolah dan pendidikan</a></li>
+        <li><a href="#as13">Perjalanan dan pariwisata</a></li>
+      </ul>
     </ul>
-  </ul>
+  </div>
+
+  <!-- KANAN (INGGRIS) -->
+  <div style="width:45%">
+    <h2>INGGRIS</h2>
+    <ul>
+      <li><a href="#bb1">Contact Data</a></li>
+      <li><a href="#bb2">Female Name</a></li>
+      <li><a href="#bb3">Male Name</a></li>
+      <li><a href="#bb4">Business Name</a></li>
+      <ul>
+        <li><a href="#qw1">Banking Finance Insurance</a></li>
+        <li><a href="#qw2">Faith and Worship</a></li>
+        <li><a href="#qw3">Food and Beverages</a></li>
+        <li><a href="#qw4">Healthcare</a></li>
+        <li><a href="#qw5">Content Media and Entertainment</a></li>
+        <li><a href="#qw6">Other</a></li>
+        <li><a href="#qw7">Schools and Education</a></li>
+        <li><a href="#qw8">Travel and Tourism</a></li>
+        <li><a href="#qw9">Beauty</a></li>
+        <li><a href="#qw10">Fashion and General Apparel</a></li>
+        <li><a href="#qw11">General Retail</a></li>
+        <li><a href="#qw12">Marketing, Advertising, Design, and PR</a></li>
+        <li><a href="#qw13">Not-for-profits</a></li>
+        <li><a href="#qw14">Real Estate, Rental, and Public Spaces</a></li>
+        <li><a href="#qw15">Technology and Software</a></li>
+        <li><a href="#qw16">Wellness, Fitness, and Lifestyle</a></li>
+      </ul>
+    </ul>
+  </div>
+
+</div>
   
 <table border="1" cellspacing="0" cellpadding="7">
-  <center><h2>Ketentuan Ukuran Font</h2></center>
+  <center><h2 id="jk1">Ketentuan Ukuran Font</h2></center>
   <tr>
     <th>Jenis File</th>
     <th>Dimensi</th>
@@ -118,7 +180,7 @@ function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let 
     <tr>
     <td>Voucer</td>
     <td>14.8 × 10.5 cm</td>
-    <td>-</td>
+    <td>7 px</td>
   </tr>
     <tr>
     <td>Kalender Dinding</td>
@@ -144,13 +206,32 @@ function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let 
 
 </table>
 <br>
-  <center><h2>Format Tanggal, Waktu dan Harga</h2></center>
+  <center><h2 id="jk2">Format Tanggal, Waktu dan Harga</h2></center>
   <center><p>Jika gambar tidak tampil, silahkan <a href="https://drive.google.com/file/d/1hzSihg4dqofqnhWusYuujS9JUk6po-AA/view?usp=sharing" target="_blank">Klik Ini</a></p></center>
   <center><img src="https://i.ibb.co.com/0yJdkJ4B/Canva-Ipsum.png" width="600" height="270"></center>
 
-<a href="#daftarisi"><div style="color:red"><center><h1 id="kingindo">INDONESIA</h1> </center></div></a>
+<br><br>
 
-<a href="#daftarisi"><h2 id="b1">Data Kontak</h2></a>
+<center><h2 id="jk3">Penghitung Metadata</h2></center>
+
+<div style="max-width:500px;margin:auto">
+  <textarea id="inputMeta" placeholder="Pisahkan dengan koma, contoh: hari pendidikan, sekolah, siswa"
+  style="width:100%;height:80px;padding:8px;border:1px solid #ccc;border-radius:6px;"></textarea>
+  
+  <br><br>
+  
+  <button onclick="hitungMetadata()">Hitung</button>
+
+  <p style="margin-top:10px;font-size:16px;">
+    <strong>Jumlah Metadata:</strong> <span id="jumlahMeta">0</span>
+  </p>
+</div>
+
+<br>
+
+<div style="color:red"><center><h1 id="kingindo">INDONESIA</h1> </center></div>
+
+<h2 id="b1">Data Kontak</h2>
 <table>
 <tr><td>No Telepon</td><td id="id1">62-819-9977-3020</td><td><button onclick="copyText('id1')">Copy</button></td></tr>
 <tr><td>No Ponsel</td><td id="id2">021 123 456 7890</td><td><button onclick="copyText('id2')">Copy</button></td></tr>
@@ -167,19 +248,19 @@ function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let 
   <strong>Catatan:</strong> Anda dapat menggunakan kombinasi angka 0-9 dengan urutan naik untuk menghasilkan detail yang aman digunakan untuk berbagai keperluan, seperti nomor rekening, faktur, atau kartu kredit.
 </div>
 
-<a href="#daftarisi"><h2 id="b2">Nama Wanita</h2></a>
+<h2 id="b2">Nama Wanita</h2>
 <table id="id_wanita"></table>
-<a href="#daftarisi"><h2 id="b3">Nama Pria</h2></a>
+<h2 id="b3">Nama Pria</h2>
 <table id="id_pria"></table>
 
-<a href="#daftarisi"><h2 id="b4">Nama Bisnis</h2></a>
+<h2 id="b4">Nama Bisnis</h2>
 <table id="id_bisnis"></table>
 
 <br><br>
-<a href="#daftarisi"><div style="color:blue"><center><h1 id="raiso">ENGLISH</h1> </center></div></a>
+<div style="color:blue"><center><h1>ENGLISH</h1></center></div>
 <br><br>
 
-<a href="#daftarisi"><h2 id="bb1">Contact Data</h2></a>
+<h2 id="bb1">Contact Data</h2>
 <table>
 <tr><td>Phone</td><td>123-456-7890</td><td><button onclick="copyCustom('123-456-7890')">Copy</button></td></tr>
 <tr><td>Mobile</td><td>+123-456-7890</td><td><button onclick="copyCustom('+123-456-7890')">Copy</button></td></tr>
@@ -196,12 +277,13 @@ function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let 
   <strong>Catatan:</strong> Anda dapat menggunakan kombinasi angka 0-9 dengan urutan naik untuk menghasilkan detail yang aman digunakan untuk berbagai keperluan, seperti nomor rekening, faktur, atau kartu kredit.
 </div>
 
-<a href="#daftarisi"><h2 id="bb2">Female Name</h2></a>
+<h2 id="bb2">Female Name</h2>
 <table id="en_wanita"></table>
-<a href="#daftarisi"><h2 id="bb3">Male Name</h2></a>
+<h2 id="bb3">Male Name</h2>
 <table id="en_pria"></table>
-<a href="#daftarisi"><h2 id="bb4">Business Name</h2></a>
+<h2 id="bb4">Business Name</h2>
 <table id="en_bisnis"></table>
+<h2 id=""></h2>
 
 <script>
 
@@ -227,8 +309,29 @@ const idBisnis={
 "Perjalanan dan pariwisata":["Area Tiket Indo","Benesari Guest House","Kantor Pos Cakrawala","Utan Boutique Hotel"]
 };
 
-let b=document.getElementById('id_bisnis');
-for(let k in idBisnis){b.innerHTML+=`<tr><td class='category' colspan='2'>${k}</td></tr>`;idBisnis[k].forEach(n=>b.innerHTML+=`<tr><td>${n}</td><td><button onclick=\"copyCustom('${n}')\">Copy</button></td></tr>`)}
+let b = document.getElementById('id_bisnis');
+
+let index = 1;
+
+for (let k in idBisnis) {
+
+  let catId = "as" + index++;
+
+  b.innerHTML += `
+    <tr id="${catId}">
+      <td class="category" colspan="2">${k}</td>
+    </tr>
+  `;
+
+  idBisnis[k].forEach(n =>
+    b.innerHTML += `
+      <tr>
+        <td>${n}</td>
+        <td><button onclick="copyCustom('${n}')">Copy</button></td>
+      </tr>
+    `
+  );
+}
 
 const enWanita=["Amy Fletcher","Charlotte Newman","Emma Brooks","Hannah Porter","Katie Lawson","Laura Bennett","Lucy Harding","Natalie Cooper","Rebecca Miles","Emily Dawson","Sarah Whitfield","Lucy Pritchard","Rachel Collins","Naomi Mensah","Rachel Akinwale","Deborah Osei","Esther Balogun","Abigail Adebayo","Aisha Rahman","Sana Mahmood","Priya Patel","Anika Shah","Riya Desai","Farah Begum","Neha Joshi","Iman Ali"];
 const enPria=["Adam Fletcher","Ben Harrington","Callum Price","Daniel Morton","Ethan Clarke","George Wilkins","Jack Rowe","Lewis Grant","Matthew Collins","Oliver Shaw","Daniel Woodley","Thomas Ridley","James Porter","Michael Henson","Aaron Mensah","Daniel Okoye","Michael Adebayo","Samuel Boateng","Joseph Adeyemi","Rahil Patel","Sameer Shah","Farhan Malik","Arjun Mehta","Zain Ahmed","Kunal Desai"];
@@ -237,7 +340,30 @@ render(enWanita,'en_wanita');render(enPria,'en_pria');
 
 const enBisnis={"Banking Finance Insurance":["Wealth","Wealth Bank","Wealth Banking","Elliot&Mater Bank","Elliot&Mater Financials","Elliot&Mater Insurance","Secure Financial Services","Intelligent Bank","Legacy Banking","Legacy Financials","Legacy Insurance","Savvy Bank","Savvy Finance","Savvy Financial Services","Noble Insurance","Noble Bank","Noble Banking","Prosper Bank","Prosper Finance","Prosper Insurance","Fortune Banking","Fortune Insurance","Fortune Financial Services","Worth Bank","Worth Insurance","Worth Financials"],"Faith and Worship":["Worship Sanctuary","Sacred Chapel","Humble Ministry","Sacred Temple","Worship Space","Spiritual Shrine","Meditation Place","Wisdom Hall","Enlightenment Monastery"],"Food and Beverages":["Harvest","Harvest Grocer","Harvest Kitchen","Harvest Restaurant","Pantry","Crave","Crave Restaurant","Crave Diner","Tasty Snacks","Feast","Rooted","Savor","Gathered","Artsy Cafe","Golden Bite","Pure Spoon","Every Crumb","Daily Harvest","Chopify Burger","Healthy Meals","Healthy Bites","Fresh Bakery","Fresh Pantry","Market Kitchen","Good Food Co","Everyday Provisions","Farm & Table","The Local Kitchen","Corner Café","Table Eight","Open House Dining","Common Room Café","Market Street Eatery"],"Healthcare":["Thrive","Vital Healthcare","Vital Wellness Center","Vital Clinic","Vital Hospital","Gentle Healthcare","Gentle Wellness Center","Gentle Clinic","Gentle Hospital","General Healthcare","General Wellness Center","General Clinic","General Hospital","Primary Healthcare","Primary Wellness Center","Primary Clinic","Primary Hospital","Bright Clinic","Holistic Care","Open Care Network","Core Health Systems","Healing Haven Hospital","Wellness Medical Group","Vital Point Health Center","Health Nest Family Practice"],"Content Media and Entertainment":["Imprint Edition","Zine Publishing","Story Media","Folio Publishing","Premium Media Group","Concept Media","Abstract Multimedia","Public Press","The Reporter","Open Pages","Dispatch","Daily Bulletin","Weekly Observer","Trend Media","Content Publishing Group","Hype Media","Stellar Studio","Dynamic Network","Citywide Media","Northside Publishing","Modern Press","Open Channel","Common Voice Media","Signal House"],"Other":["Northline Group","Union Consulting","Meridian Services","Core Solutions","Pathway Partners","Framework Partners"],"Schools and Education":["Little Explorers Academy","Little Explorers Learning Center","Little Explorers Play School","North Academy","North Primary School","North School","North Elementary School","North High School","North Secondary School","North University","North College","South Academy","South Primary School","South School","South Elementary School","South High School","South Secondary School","South University","South College","West Academy","West Primary School","West School","West Elementary School","West High School","West Secondary School","West University","West College","East Academy","East Primary School","East School","East Elementary School","East High School","East Secondary School","East University","East College","Northwest Academy","Northwest Primary School","Northwest School","Northwest Elementary School","Northwest High School","Northwest Secondary School","Northwest University","Northwest College","Southwest Academy","Southwest Primary School","Southwest School","Southwest Elementary School","Southwest High School","Southwest Secondary School","Southwest University","Southwest College","Northeast Academy","Northeast Primary School","Northeast School","Northeast Elementary School","Northeast High School","Northeast Secondary School","Northeast University","Northeast College","Southeast Academy","Southeast Primary School","Southeast School","Southeast Elementary School","Southeast High School","Southeast Secondary School","Southeast University","Southeast College","Western Academy","Western Primary School","Western School","Western Elementary School","Western High School","Western Secondary School","Western University","Western College","Eastern Academy","Eastern Primary School","Eastern School","Eastern Elementary School","Eastern High School","Eastern Secondary School","Eastern University","Eastern College","Northern Academy","Northern Primary School","Northern School","Northern Elementary School","Northern High School","Northern Secondary School","Northern University","Northern College","Southern Academy","Southern Primary School","Southern School","Southern Elementary School","Southern High School","Southern Secondary School","Southern University","Southern College","Oakfield Primary School","Meadowbrook Primary School","Willow Lane Primary School","Rosewood Primary School","Greenway Primary School","Brookside Primary School","Hillcrest Primary School","Sunnyfields Primary School","Maple Grove Primary School","Chestnut Hill Primary School","Foxglove Primary School","Birchwood Primary School","Appleton Primary School","Cloverfields Primary School","Fernbank Primary School","Ivybridge Primary School","Pinemoor Primary School","Hazelbrook Primary School","Bluebell Primary School","Elmstead Primary School","Westbrook Secondary School","Ridgeway High School","Northfield Community School","Eastgate Secondary School","Brookvale High School","Parklands School","Stonebridge School","Greenfields School","Southbrook Secondary School","Moorland High School","Brookfield High School","Westvale Secondary School","Ashdown School","Kingsford High School","Redfield Secondary School","Fairlands School","Northmoor High School","Valley Ridge School","Stonefield High School","Parkview Secondary School","Oakridge Academy","Riverfield Academy","Hillview Academy","Brookstone Academy","Meadowcroft Academy","Northgate Academy","Silverdale Academy","Ashford School","Linden House School","Hawthorne School","Cedar Grove School","Kingswell School","Fairview School","University of Westbridge","University of Northvale","University of Eastborough","University of Southford","University of Greenhill","University of Brookminster","University of Stonebridge","University of Fairchester","University of Westfield","Northgate University","City of Meadowfield University","University of Parkside","University of Hillview","Central Valley University","University of Lakeside","Greenfield University","Oakridge University","Brookstone University","Silvermere University","University of Ashford Vale","Clearview University","Northbridge University","Riverford University","Westbrook College","Northvale College","Riverside College","University of Parklands","Meadowfield Metropolitan University","Greenhill College","Stonebridge College","Brooklands College","Greenfield College","Clearview College","Lakeside College","Woodlands College","Fieldstone College","Springvale College","Glenmore College","Westwood College"],"Travel and Tourism":["First Landing","First Landing Travel and Tours","Skyward Journeys","Skyward Journeys Airlines","Open Horizon","Open Horizon Tours","Escape","Escape Resort & Spa","Drift","Drift Bed & Breakfast","Voyage","Voyage Airlines","Harbor","Harbor Tours","Global Air","Worldwide Airlines","Vacation Travel Agency","Vacation Inn","Vacation Lodge","Cozy Stay Inn","Cozy Stay Lodge","Cozy Bed & Breakfast","Dream Travel and Tours","Dream Travel Agency","Ultimate Tours","Ultimate Hotel","Ultimate Resort & Spa","Luxe Resort & Spa","Luxe Hotel","Premium Travel","Premium Hotel"],"Beauty":["Clean Beauty","Radiant Beauty","Pure Essentials","Fresh Makeup","Luxe Makeup","Glam Cosmetics","Glam Makeup","Dewy Makeup","Velvet Cosmetics","Pop Cosmetics","Radiant Skincare","Simple Skincare","Gentle Skin Essentials","Posh Salon","Posh Parlor","Luxe Salon","Luxe Parlor","Modern Salon & Spa","Urban Salon & Spa","Urban Barbers","Luxe Hair Studio","Pure & Simple Beauty","Glow Studio","Everyday Skincare","Clean Beauty Store","Fresh Face Makeup","Bare Beauty Shop","Pure Makeup","Easy Beauty","Everyday Beauty Store","Skin & Makeup","The Beauty Shop","Beauty Essentials"],"Fashion and General Apparel":["Silhouette","Style","Flair","Refined","Wearable","Detail","Palette","Iconic","Signature Style","Tailor Made","Fresh Threads","Timeless Silhouettes","Classic Threads","Modern Form","True Fit","Fresh Fits","Daily Wear","Styled Well","Wardrobe Wear","Modern Thread","Citywear Collective","Everyday Edit","Plainform","Street & Stitch","Current Apparel"],"General Retail":["Metro Markets","Trendy Market","Trendy Merch","Variety Market","Variety Supermarket","Variety Store","Variety Merchandise","Assorted Market","Assorted Supermarket","Assorted Store","Assorted Merchandise","Gateway General Store","Cornerstone Retail","Main Market","Main Supermarket","Main Store","Main Merchandise","Fashion Foundry","Premier General Store","Valley Commerce","Fusion Markets","Central Supply Co.","Quality Marketplace","Wares","Highstreet Goods","Everyday Market","Town & Co","Local Essentials","Corner Retail","Union Stores"],"Marketing, Advertising, Design, and PR":["Impact Inc","Creative Collective","Creative Lab","Creative Studio + Lab","Dynamic Agency","Visionary Studio","Visionary PR","Bold Marketing","Bold Design Studio","Collab Studio","Vivid Design","Vivid Marketing","Insight Lab","Brightside Studio","Fieldwork Creative","Union & Co","Openform Agency","Plainview Marketing","Studio North"],"Not-for-profits":["Learning Path","Shelter Space","Art Access","Future Leaders","Wildlife Watch","Elder Care","Senior Support","Relief Ready","Community Kitchen","Shelter Aid","Scholar’s Fund"],"Real Estate, Commercial, Rental, and Public Spaces":["Realty","Dwell","Dwell Realty","Dwell Properties","Land","Land Properties","Land Property Management","Brick","Brick Realty","Nest","Nest Realty","Roof","Roof Real Estate","Move","Move Real Estate","Urban","Urban Properties","Home","Home Realty","Property","Space","Space Properties","Place","Estate","Estate Property Management","Block","Block Realty","Key","Key Realty"],"Technology and Software":["Byte","Circuit","Circuit Systems","Circuit Networks","Gravity","Gravity Soft","Gravity Tech","Cloudlet","Cloudlet Tech","Cloudlet Systems","Elevate","Vertex","Vertex Systems","Innovation","Innovation Systems","Innovation Hub","Streamline","Streamline Soft","Streamline Systems","Mode AI","Meshwork","Forge"],"Wellness, Fitness, and Lifestyle":["Thriving Wellness","Nourished Life","Fit Lifestyle","Whole Wellness","Momentum Gym","Bold Living","Power Fitness","Core & Balance Pilates","Energized","Balanced Path","Clean Living Co","Active Spirit","Intentional Movement Studio","Daily Living Co","Simple Spaces","Home & Habit","Modern Living Group","Life Edit","The Living Company"]}
 
-let e=document.getElementById('en_bisnis');for(let k in enBisnis){e.innerHTML+=`<tr><td class='category' colspan='2'>${k}</td></tr>`;enBisnis[k].forEach(n=>e.innerHTML+=`<tr><td>${n}</td><td><button onclick=\"copyCustom('${n}')\">Copy</button></td></tr>`)}
+let e = document.getElementById('en_bisnis');
+
+let qwIndex = 1;
+
+for (let k in enBisnis) {
+
+  let catId = "qw" + qwIndex++;
+
+  e.innerHTML += `
+    <tr id="${catId}">
+      <td class="category" colspan="2">${k}</td>
+    </tr>
+  `;
+
+  enBisnis[k].forEach(n => {
+    e.innerHTML += `
+      <tr>
+        <td>${n}</td>
+        <td><button onclick="copyCustom('${n}')">Copy</button></td>
+      </tr>
+    `;
+  });
+
+}
 
 </script>
 </body>
