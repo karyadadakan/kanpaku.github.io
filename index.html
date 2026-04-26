@@ -4,16 +4,27 @@
 <meta charset="UTF-8">
 <title>Ipsum Kanpa</title>
 <style>
-<a href="#daftarisi" id="backToTop"
-style=
 
-body{font-family:Arial;padding:20px}
+body {
+font-family: Arial;padding:20px}
 h1{margin-top:40px}
 table{border-collapse:collapse;width:100%;margin-bottom:20px}
 td{border:1px solid #ccc;padding:6px;vertical-align:top}
 button{padding:5px 8px;cursor:pointer}
 .category{background:#eee;font-weight:bold}
-#toast{position:fixed;bottom:20px;right:20px;background:black;color:#fff;padding:10px;border-radius:5px;opacity:0;transition:.3s}
+#toast{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:black;
+  color:white;
+  padding:12px 16px;
+  border-radius:8px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.3s;
+  z-index:9999;
+}
 </style>
 </head>
 <a href="#daftarisi" id="backToTop"
@@ -38,17 +49,50 @@ display:none;
 <div id="toast">Berhasil disalin</div>
 
 <script>
-function toast(){let t=document.getElementById('toast');t.style.opacity=1;setTimeout(()=>t.style.opacity=0,2000)}
+function toast(){
+  let t = document.getElementById('toast');
+  if(!t) return;
+
+  t.style.opacity = 1;
+  t.style.transform = "translateY(0)";
+
+  setTimeout(()=>{
+    t.style.opacity = 0;
+    t.style.transform = "translateY(20px)";
+  }, 1500);
+}
 function copyText(id){navigator.clipboard.writeText(document.getElementById(id).innerText);toast()}
 function copyCustom(text){navigator.clipboard.writeText(text);toast()}
 function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let p=n.split(' ');t.innerHTML+=`<tr><td>${n}</td><td><button onclick="copyCustom('${n}')">Full</button><button onclick="copyCustom('${p[0]}')">Front</button><button onclick="copyCustom('${p.slice(1).join(' ')}')">Back</button></td></tr>`})}
+let hasilText = ""; // tambahan
+
 function hitungMetadata(){
   let input = document.getElementById("inputMeta").value;
 
-  let data = input.split(",");
-  let metadata = data.map(x => x.trim()).filter(x => x !== "");
+  let data = input.split(",")
+    .map(x => x.trim())
+    .filter(x => x !== "");
 
-  document.getElementById("jumlahMeta").innerText = metadata.length;
+  document.getElementById("jumlahMeta").innerText = data.length;
+}
+
+function copyMetadata(){
+  let input = document.getElementById("inputMeta").value;
+
+  let data = input.split(",")
+    .map(x => x.trim())
+    .filter(x => x !== "");
+
+  let hasil = data.join(", ");
+
+  navigator.clipboard.writeText(hasil);
+
+  toast("Metadata berhasil disalin");
+}
+function copyAcak(){
+  if(!hasilAcakText) return;
+  navigator.clipboard.writeText(hasilAcakText);
+  toast("Hasil acakan berhasil disalin");
 }
 let timer;
 
@@ -69,12 +113,13 @@ window.addEventListener("scroll", function() {
 
 </script>
 
-  <center><h1 id="daftarisi">DAFTAR ISI</h1></center>
+  <center><h1 id="daftarisi">PLACEHOLDER KANPA</h1></center>
   <h2>Ketentuan</h2>
   <ul>
     <li><a href="#jk1">Ketentuan ukuran font</a></li>
     <li><a href="#jk2">Format tanggal, waktu dan harga</a></li>
     <li><a href="#jk3">Penghitung metadata</a></li>
+    <li><a href="#jk4">Pengacak metadata</a></li>
   </ul>
 <div style="display:flex;gap:40px;justify-content:center;align-items:flex-start">
 
@@ -220,11 +265,29 @@ window.addEventListener("scroll", function() {
   
   <br><br>
   
-  <button onclick="hitungMetadata()">Hitung</button>
+<button onclick="hitungMetadata()">Hitung</button>
+<button onclick="copyMetadata()">Copy</button>
 
   <p style="margin-top:10px;font-size:16px;">
     <strong>Jumlah Metadata:</strong> <span id="jumlahMeta">0</span>
   </p>
+  <br><br>
+  
+</div>
+<center><h2 id="jk4">Pengacak Metadata</h2></center>
+
+<div style="max-width:500px;margin:auto">
+  <textarea id="acakMetaInput"
+  placeholder="Contoh: hari pendidikan, hari pendidikan nasional, belajar, siswa, sekolah"
+  style="width:100%;height:80px;padding:8px;border:1px solid #ccc;border-radius:6px;resize:both;"></textarea>
+
+  <br><br>
+
+  <button onclick="acakMetadata()">Acak</button>
+  <button onclick="copyAcak()">Copy</button>
+
+  <p style="margin-top:10px;"><strong>Hasil:</strong></p>
+  <div id="hasilAcak" style="padding:2px;border:0px solid #ccc;border-radius:0px;"></div>
 </div>
 
 <br>
@@ -365,6 +428,40 @@ for (let k in enBisnis) {
 
 }
 
+let hasilAcakText = "";
+
+function acakMetadata(){
+  let input = document.getElementById("acakMetaInput").value;
+
+  let data = input.split(",")
+    .map(x => x.trim())
+    .filter(x => x !== "");
+
+  if(data.length === 0) return;
+
+  // 🔵 ambil 1-2
+  let firstTwo = data.slice(0,2);
+
+  // 50:50 swap
+  if(firstTwo.length === 2 && Math.random() < 0.5){
+    firstTwo.reverse();
+  }
+
+  // 🔵 ambil sisanya (3 dst)
+  let rest = data.slice(2);
+
+  // 🔥 WAJIB SHUFFLE TOTAL (Fisher-Yates)
+  for (let i = rest.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [rest[i], rest[j]] = [rest[j], rest[i]];
+  }
+
+  let hasilArray = [...firstTwo, ...rest];
+
+  hasilAcakText = hasilArray.join(", ") + ",";
+
+  document.getElementById("hasilAcak").innerText = hasilAcakText;
+}
 </script>
 </body>
 </html>
