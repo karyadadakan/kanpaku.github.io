@@ -2,6 +2,9 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <title>Ipsum Kanpa</title>
 <style>
 
@@ -25,6 +28,112 @@ button{padding:5px 8px;cursor:pointer}
   transition:0.3s;
   z-index:9999;
 }
+
+/* tombol */
+.btn{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:#ff2d55;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:15px;
+  cursor:pointer;
+}
+
+/* popup */
+.popup{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
+}
+
+/* box */
+.box{
+  background:white;
+  width:420px;
+  padding:15px;
+  border-radius:12px;
+  position:relative;
+}
+
+/* close */
+.close{
+  position:absolute;
+  right:10px;
+  top:5px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  max-height:300px;
+  overflow-y:auto;
+  margin-top:10px;
+}
+
+/* ARTIS */
+.artist{
+  background:#f2f2f2;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.artist img{
+  width:100%;
+  border-radius:10px;
+}
+
+.artist a{
+  display:inline-block;
+  margin-top:6px;
+  padding:5px 10px;
+  background:#ff2d55;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-size:12px;
+}
+
+/* FEATURED */
+.featured{
+  grid-column: span 2;
+}
+
+.featured img{
+  height:180px;
+  object-fit:cover;
+}
+
+/* BOX SCROLL */
+.credit-box,
+.sosmed-box{
+  max-height:250px;
+  overflow-y:auto;
+}
+
+/* SOSMED */
+.sosmed a{
+  display:block;
+  margin:10px 0;
+  padding:10px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  color:black;
+}
 </style>
 </head>
 <a href="#daftarisi" id="backToTop"
@@ -47,6 +156,158 @@ display:none;
 <body>
 
 <div id="toast">Berhasil disalin</div>
+
+<!-- KIRI -->
+<div style="float:left;position:relative;display:inline-block;margin-left:10px"
+onmouseover="t1.style.display='block'" onmouseout="t1.style.display='none'">
+
+  <a href="https://www.notion.so/hellofriday/Element-Directory-2c3270ee6f928034ae10fdfccf98d747" target="_blank"><button onclick="openPopup('qwe')"
+  style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
+    <i class="fa-solid fa-shapes"></i>
+  </button></a>
+
+  <div id="t1" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
+    Element
+  </div>
+
+</div>
+
+<div style="float:left;position:relative;display:inline-block;margin-left:10px"
+onmouseover="t2.style.display='block'" onmouseout="t2.style.display='none'">
+
+  <a href="https://canva.link/5tleqc1ylp4xvpa" target="_blank"><button onclick="openPopup('asd')"
+  style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
+    <i class="fa-solid fa-chalkboard"></i>
+  </button></a>
+
+  <div id="t2" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
+    Moodboard Element
+  </div>
+
+</div>
+
+<div style="float:left;position:relative;display:inline-block;margin-left:10px"
+onmouseover="t3.style.display='block'" onmouseout="t3.style.display='none'">
+
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQZGtP1bCpNNwG-KDSvKGHfIhtr4AwvZqcY3zMmJsQdTZ5WQ/viewform" target="_blank"><button onclick="openPopup('zxc')"
+  style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
+    <i class="fa-solid fa-file-pen"></i>
+  </button></a>
+
+  <div id="t3" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
+    Request Element
+  </div>
+
+</div>
+
+<div style="float:left;position:relative;display:inline-block;margin-left:10px"
+onmouseover="t4.style.display='block'" onmouseout="t4.style.display='none'">
+
+  <a href="https://hellofriday.notion.site/Design-Style-Directory-2b5270ee6f928055ae72eb2b944dfc58" target="_blank"><button onclick="openPopup('mnb')"
+  style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
+    <i class="fa-solid fa-bezier-curve"></i>
+  </button></a>
+
+  <div id="t4" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
+    Style Design
+  </div>
+
+</div>
+
+<!-- KANAN -->
+<div style="float:right;position:relative;display:inline-block"
+onmouseover="t7.style.display='block'" onmouseout="t7.style.display='none'">
+
+  <button onclick="openPopup('credit')"
+  style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
+    <i class="fa-solid fa-gear"></i>
+  </button>
+
+  <div id="t7" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
+    Pengaturan
+  </div>
+
+</div>
+
+<div style="float:right;position:relative;display:inline-block"
+onmouseover="t8.style.display='block'" onmouseout="t8.style.display='none'">
+
+  <button id="daftarisi" onclick="openPopup('music')"
+  style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
+    <i class="fa-solid fa-music"></i>
+  </button>
+
+  <div id="t8" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
+    Musik
+  </div>
+
+</div>
+
+<!-- penting: reset float -->
+<div style="clear:both;"></div>
+
+<!-- MUSIC POPUP -->
+<div class="popup" id="music">
+  <div class="box">
+    <div class="close" onclick="closePopup('music')">✖</div>
+
+    <center><h3>Playlist Lagu</h3></center>
+
+    <div class="grid">
+
+      <div class="artist featured">
+        <img src="https://i.ibb.co.com/8DsM27YQ/Thumbnail-Lagu-2.png">
+        <h4>Playlist Lagu Jawa</h4>
+        <a href="https://youtube.com/playlist?list=PL4MEoikXGFZkIBNYwaWMN3y6n5GDZaRGS&si=lA4Qfx8v1pRzcQaI" target="_blank">Play</a>
+      </div>
+
+      <div class="artist"><img src="https://i.ibb.co.com/MxNJqYsn/Ajeng-febria.jpg" alt="Ajeng febria"><h4>Ajeng Febria</h4><a href="https://youtube.com/playlist?list=PLEjhhcElu8fj0FF_zidvq6J1Nx_1mIFxw&si=NYGKSUgVXwPxRTvb" target="_blank">Play</a></div>
+      <div class="artist"><img src="https://i.ibb.co.com/4RgZNcMF/rei-vania.jpg"><h4>Rei Vania</h4><a href="#">Play</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- CREDIT POPUP -->
+<div class="popup" id="credit"> 
+  <div class="box">
+    <div class="close" onclick="closePopup('credit')">✖</div>
+
+    <div class="credit-box">
+      <h2>Credit</h2>
+      <p>Developer by <b>Hamba Allah</b></p>
+      <p>Version : v1.2</p>
+      <p>Last Updated : 10/05/2026</p>
+      <p>Thanks for using this website</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- SOSMED POPUP -->
+<div class="popup" id="sosmed">
+  <div class="box">
+    <div class="close" onclick="closePopup('sosmed')">✖</div>
+
+    <div class="sosmed-box">
+      <h2>Sosial Media</h2>
+
+      <div class="sosmed">
+        <a href="https://youtube.com" target="_blank">
+          <i class="fa-brands fa-youtube"></i> YouTube
+        </a>
+
+        <a href="https://tiktok.com" target="_blank">
+          <i class="fa-brands fa-tiktok"></i> TikTok
+        </a>
+
+        <a href="https://instagram.com" target="_blank">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <script>
 function toast(){
@@ -113,7 +374,8 @@ window.addEventListener("scroll", function() {
 
 </script>
 
-  <center><h1 id="daftarisi">PLACEHOLDER KANPA</h1></center>
+  <div style="font-size:30px;"><center><h1><b>PLACEHOLDER KANPA</b></h1></center></div>
+
   <h2>Ketentuan</h2>
   <ul>
     <li><a href="#jk1">Ketentuan ukuran font</a></li>
@@ -121,42 +383,82 @@ window.addEventListener("scroll", function() {
     <li><a href="#jk3">Penghitung metadata</a></li>
     <li><a href="#jk4">Pengacak metadata</a></li>
   </ul>
-<div style="display:flex;gap:40px;justify-content:center;align-items:flex-start">
 
-  <!-- KIRI (INDONESIA) -->
+<div style="display:flex;gap:40px;align-items:flex-start">
+
+  <!-- KIRI -->
   <div style="width:45%">
-    <h2>INDONESIA</h2>
-    <ul>
-      <li><a href="#b1">Data Kontak</a></li>
-      <li><a href="#b2">Nama Wanita</a></li>
-      <li><a href="#b3">Nama Pria</a></li>
-      <li><a href="#b4">Nama Bisnis</a></li>
+
+    <!-- INDONESIA -->
+    <div>
+      <h2>INDONESIA</h2>
       <ul>
-        <li><a href="#as1">Perbankan, keuangan, dan asuransi</a></li>
-        <li><a href="#as2">Agama dan peribadatan</a></li>
-        <li><a href="#as3">Makanan dan Minuman</a></li>
-        <li><a href="#as4">Pelayanan Kesehatan</a></li>
-        <li><a href="#as5">Properti, komersial, retal dan ruang publik</a></li>
-        <li><a href="#as6">Teknologi dan perangkat lunak</a></li>
-        <li><a href="#as7">Kesehatan, kebugaran dan gaya hidup</a></li>
-        <li><a href="#as8">Kecantikan</a></li>
-        <li><a href="#as9">Fashion/pakaian</a></li>
-        <li><a href="#as10">Ritel umum</a></li>
-        <li><a href="#as11">Pemasaran, periklanan, desain, dan humas</a></li>
-        <li><a href="#as12">Sekolah dan pendidikan</a></li>
-        <li><a href="#as13">Perjalanan dan pariwisata</a></li>
+        <li><a href="#b1">Data Kontak</a></li>
+        <li><a href="#b2">Nama Wanita</a></li>
+        <li><a href="#b3">Nama Pria</a></li>
+        <li><a href="#b4">Nama Bisnis</a></li>
+
+        <ul>
+          <li><a href="#as1">Perbankan, keuangan, dan asuransi</a></li>
+          <li><a href="#as2">Agama dan peribadatan</a></li>
+          <li><a href="#as3">Makanan dan Minuman</a></li>
+          <li><a href="#as4">Pelayanan Kesehatan</a></li>
+          <li><a href="#as5">Properti, komersial, retail dan ruang publik</a></li>
+          <li><a href="#as6">Teknologi dan perangkat lunak</a></li>
+          <li><a href="#as7">Kesehatan, kebugaran dan gaya hidup</a></li>
+          <li><a href="#as8">Kecantikan</a></li>
+          <li><a href="#as9">Fashion/pakaian</a></li>
+          <li><a href="#as10">Ritel umum</a></li>
+          <li><a href="#as11">Pemasaran, periklanan, desain, dan humas</a></li>
+          <li><a href="#as12">Sekolah dan pendidikan</a></li>
+          <li><a href="#as13">Perjalanan dan pariwisata</a></li>
+        </ul>
+
       </ul>
-    </ul>
+    </div>
+
+    <!-- ARAB -->
+    <div style="margin-top:40px;">
+      <h2>ARAB</h2>
+
+      <ul>
+        <li><a href="#bbb1">Contact Data</a></li>
+        <li><a href="#bbb2">Female Name</a></li>
+        <li><a href="#bbb3">Male Name</a></li>
+        <li><a href="#bbb4">Business Name</a></li>
+
+        <ul>
+          <li><a href="#ar1">Banking, Finance, and Insurance</a></li>
+          <li><a href="#ar2">Fashion and General Clothing</a></li>
+          <li><a href="#ar3">General Retail</a></li>
+          <li><a href="#ar4">Marketing, Advertising, Design and Public Relations</a></li>
+          <li><a href="#ar5">Real Estate, Commercial and Public Places and Rental Places</a></li>
+          <li><a href="#ar6">Technology and Software</a></li>
+          <li><a href="#ar7">Wellness, Fitness and Lifestyle</a></li>
+          <li><a href="#ar8">Beauty</a></li>
+          <li><a href="#ar9">Food and Beverages</a></li>
+          <li><a href="#ar10">Health Care</a></li>
+          <li><a href="#ar11">Content, Media and Entertainment</a></li>
+          <li><a href="#ar12">Schools and Education</a></li>
+          <li><a href="#ar13">Travel and Tourism</a></li>
+        </ul>
+
+      </ul>
+    </div>
+
   </div>
 
-  <!-- KANAN (INGGRIS) -->
+  <!-- KANAN -->
   <div style="width:45%">
+
     <h2>INGGRIS</h2>
+
     <ul>
       <li><a href="#bb1">Contact Data</a></li>
       <li><a href="#bb2">Female Name</a></li>
       <li><a href="#bb3">Male Name</a></li>
       <li><a href="#bb4">Business Name</a></li>
+
       <ul>
         <li><a href="#qw1">Banking Finance Insurance</a></li>
         <li><a href="#qw2">Faith and Worship</a></li>
@@ -175,8 +477,13 @@ window.addEventListener("scroll", function() {
         <li><a href="#qw15">Technology and Software</a></li>
         <li><a href="#qw16">Wellness, Fitness, and Lifestyle</a></li>
       </ul>
+
     </ul>
+
   </div>
+
+</div>
+
 
 </div>
   
@@ -211,6 +518,12 @@ window.addEventListener("scroll", function() {
     <td>ID Card</td>
     <td>50 × 85 mm</td>
     <td>4 px</td>
+  </tr>
+  </tr>
+    <tr>
+    <td>Lanyard</td>
+    <td>45 × 25 cm</td>
+    <td>-</td>
   </tr>
     <tr>
     <td>Banner</td>
@@ -290,9 +603,9 @@ window.addEventListener("scroll", function() {
   <div id="hasilAcak" style="padding:2px;border:0px solid #ccc;border-radius:0px;"></div>
 </div>
 
-<br>
-
-<div style="color:red"><center><h1 id="kingindo">INDONESIA</h1> </center></div>
+<br><br>
+<div style="background:darkred; color:white; padding:10px; font-size:20px ;"><center><h1>INDONESIA</h1></center></div>
+<br><br>
 
 <h2 id="b1">Data Kontak</h2>
 <table>
@@ -320,13 +633,12 @@ window.addEventListener("scroll", function() {
 <table id="id_bisnis"></table>
 
 <br><br>
-<div style="color:blue"><center><h1>ENGLISH</h1></center></div>
+<div style="background:darkblue; color:white; padding:10px; font-size:20px ;"><center><h1>ENGLISH</h1></center></div>
 <br><br>
 
 <h2 id="bb1">Contact Data</h2>
 <table>
 <tr><td>Phone</td><td>123-456-7890</td><td><button onclick="copyCustom('123-456-7890')">Copy</button></td></tr>
-<tr><td>Mobile</td><td>+123-456-7890</td><td><button onclick="copyCustom('+123-456-7890')">Copy</button></td></tr>
 <tr><td>Website</td><td>www.reallygreatsite.com<br>reallygreatsite.com</td><td><button onclick="copyCustom('www.reallygreatsite.com')">Copy 1</button><button onclick="copyCustom('reallygreatsite.com')">Copy 2</button></td></tr>
 <tr><td>Email</td><td>hello@reallygreatsite.com</td><td><button onclick="copyCustom('hello@reallygreatsite.com')">Copy</button></td></tr>
 <tr><td>Medsos</td><td>@reallygreatsite</td><td><button onclick="copyCustom('@reallygreatsite')">Copy</button></td></tr>
@@ -346,6 +658,34 @@ window.addEventListener("scroll", function() {
 <table id="en_pria"></table>
 <h2 id="bb4">Business Name</h2>
 <table id="en_bisnis"></table>
+<h2 id=""></h2>
+
+
+<br><br>
+<div style="background:darkgreen; color:white; padding:10px; font-size:20px ;"><center><h1>ARAB</h1></center></div>
+<br><br>
+
+<h2 id="bbb1">Contact Data</h2>
+<table>
+<tr><td>Phone</td><td>123-456-7890</td><td><button onclick="copyCustom('123-456-7890')">Copy</button></td></tr>
+<tr><td>Website</td><td>www.moke3gameel.com</td><td><button onclick="copyCustom('www.moke3gameel.com')">Copy</button></td></tr>
+<tr><td>Email</td><td>hello@reallygreatsite.com</td><td><button onclick="copyCustom('hello@reallygreatsite.com')">Copy</button></td></tr>
+<tr><td>Social Media</td><td>moke3gameel@</td><td><button onclick="copyCustom('moke3gameel@')">Copy</button></td></tr>
+<tr><td>Address</td><td> شارع 8، حي الزهراء، مدينة النور، الوطن العربي، 12345</td><td><button onclick="copyCustom(' شارع 8، حي الزهراء، مدينة النور، الوطن العربي، 12345')">Copy</button></td></tr>
+<tr><td>No Rekening</td><td id="id8">MENA12 3456 7890 1234 5678 9012 </td><td><button onclick="copyText('id8')">Copy</button></td></tr>
+<tr><td>Nomor (14 digit) </td><td id="id9">12239051400045</td><td><button onclick="copyText('id9')">Copy</button></td></tr>
+</table>
+
+<div class="note">
+  <strong>Catatan:</strong> Anda dapat menggunakan kombinasi angka 0-9 dengan urutan naik untuk menghasilkan detail yang aman digunakan untuk berbagai keperluan, seperti nomor rekening, faktur, atau kartu kredit.
+</div>
+
+<h2 id="bbb2">Female Name</h2>
+<table id="wanita_ar"></table>
+<h2 id="bbb3">Male Name</h2>
+<table id="pria_ar"></table>
+<h2 id="bbb4">Business Name</h2>
+<table id="bisnis_ar"></table>
 <h2 id=""></h2>
 
 <script>
@@ -428,6 +768,41 @@ for (let k in enBisnis) {
 
 }
 
+const arbWanita=["ساندري فؤاد بشارة","مها عادل غالي","ندى سمير راجب","انجي منير عياد","ماريغ عاطف رمسيس","بستنت ميتنا بشاي","شادية فوزي مجايل","نادية جلال فكرى","نورهان حسن إبراهيم","نيقيين فؤاد فتحى","نهى سامي عبد العاطي","هيام خالد عبد المجيد","مريم عادل راضي","ريم صلاح محمد","سارة عماد صالح","فردية أحمد مهدي","أمنية سعيد مخلوف","منى حاتم صادق","أمينة محمود جمال","كارولين سامي عبد الغفار","منار أسامة عبد التواب","مي شريف عبد الوهاب","أمل نجيب اسكندر","إيمان أحمد كريم","سمر حسين مرضي","آية سامح حليم"];
+
+const arbPria=["خالد أحمد عبد التواب","فريد رؤوف سامي","أيمن محمد صلاح","مصطفى العدوى فريد","محمد أيمن فؤاد","محمود محمد جابر","عمر عبد المنعم سلامة","عمرو وفيق عبد الفتاح","سيف محمد صبحي","دانيال رؤوف حكيم","مايكل رمزي عدلي","شادي عمود عبد النبي","عفط محمود وائل","فوزي جرجس صارر","هاني نظير عبد المسيح","شهاب أحمد فخري","عادل مصطفى حسين","محمد علي رؤوف","مصطفى حسن عبد الله","عمر طارق صلاح","سيف خالد احمد","مايكل فؤاد قناوي","ميناوجيه هشام","فريد عصام يوسف"];
+
+render(arbWanita,'wanita_ar');render(arbPria,'pria_ar');
+
+const arbBisnis={"Banking, Finance, and Insurance":["وادي الكنافة للاستثمار","نوران للاستشارات المالية"],"Fashion and General Clothing":["كوتور كابرو","تصميمات سارة نادي للذهب والأحجار","أورورا ستايل","ستايلش بلس"],"General Retail":["توب كارز للسيارات المستعملة","الدولفين بلس للسيارات","بازار النيل الأزرق للهدايا والتذكارات","مكتبة الأفق"],"Marketing, Advertising, Design and Public Relations":["أثر بروداكشن","إشراقه بروداكشن","موضة براند هاوس","مكتب سعد البحراوي للإعلام والدعاية والإعلان","رؤية بلس للدعاية والتسويق","صدى النيل للتسويق"],"Real Estate, Commercial and Public Places and Rental Places":["الشروق كابيتال","دلتا بلاس للتطوير","أندلس الشرق للتنمية العقارية"],"Technology and Software":["كود لاين","بلو سيركت"],"Wellness, Fitness and Lifestyle":["موشن فيجن","باور موشن فنس","إيقاع الحياة","توارن ويلنس"],"Beauty":["سحر وشيرين بيوتي سنتر","لوتس بلو","أروما مساج آن سبا","بسمة بيوتي نيلز","كوافير فادي و مجدي","حلاق المدينة المنورة"],"Food and Beverages":["مطعم كيرالا للمأكولات الهندية النباتية","دايشتون للشواء الكورية","مطعم صنعاء للمندي","المرجان كافيه","فطاظري الهنا","بيت اللوز","مطعم صحة وعافية","النخلة جروب"],"Health Care":["عيادات ترو هلت المتكاملة"],"Content, Media and Entertainment":["أفلامكو للتصوير والطباعة"],"Schools and Education":["روضة القلوب البريئة","روضة الأجنحة الصغيرة","روضة النجوم المتألفة","روضة الزهور العطرة","روضة المبدعين الصغار","روضة الفرح الدائم","روضة الأمل الوردي","روضة العقول النيرة","روضة الأحلام الكبيرة","روضة براعم الزهرة","روضة الفراشات الطائرة","روضة الزهور المتألقة","روضة النهار المشرق","روضة النجوم اللاعبة","مدرسة الضياء الجديد الابتدائية","مدرسة الرواد الحديثة الابتدائية","مدرسة المتميزون الجدد الابتدائية","مدرسة المعطاء الدائم الابتدائية","مدرسة الوفاء الراشدين الابتدائية","مدرسة الأمل المشرق الجديد الابتدائية","مدرسة التحدي المستمر الابتدائية","مدرسة الإلهام المتجدد الإعدادية","مدرسة النبراس المضئي الإعدادية","مدرسة الإبداع"],"Travel and Tourism":["فندق صنارة المتوسط","نوران جودين تورتز","سما المتحدة ترافيل","رحال جلوبال ترافيل","آفاق الجديدة للسياحة والسفر","المحيط إليبت ترافيل"]}
+
+let a = document.getElementById('bisnis_ar');
+
+let arIndex = 1;
+
+for (let k in arbBisnis) {
+
+  let catId = "ar" + arIndex++;
+
+  a.innerHTML += `
+    <tr id="${catId}">
+      <td class="category" colspan="2">${k}</td>
+    </tr>
+  `;
+
+  arbBisnis[k].forEach(n => {
+    a.innerHTML += `
+      <tr>
+        <td>${n}</td>
+        <td><button onclick="copyCustom('${n}')">Copy</button></td>
+      </tr>
+    `;
+  });
+
+}
+
+
+
 let hasilAcakText = "";
 
 function acakMetadata(){
@@ -462,6 +837,15 @@ function acakMetadata(){
 
   document.getElementById("hasilAcak").innerText = hasilAcakText;
 }
+
+function openPopup(id){
+  document.getElementById(id).style.display="flex";
+}
+
+function closePopup(id){
+  document.getElementById(id).style.display="none";
+}
 </script>
 </body>
 </html>
+
