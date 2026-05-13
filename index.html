@@ -158,7 +158,7 @@ display:none;
 <div id="toast">Berhasil disalin</div>
 
 <!-- KIRI -->
-<div style="float:left;position:relative;display:inline-block;margin-left:10px"
+<div style="float:left;position:relative;display:inline-block;margin-left:5px"
 onmouseover="t1.style.display='block'" onmouseout="t1.style.display='none'">
 
   <a href="https://www.notion.so/hellofriday/Element-Directory-2c3270ee6f928034ae10fdfccf98d747" target="_blank"><button onclick="openPopup('qwe')"
@@ -172,7 +172,7 @@ onmouseover="t1.style.display='block'" onmouseout="t1.style.display='none'">
 
 </div>
 
-<div style="float:left;position:relative;display:inline-block;margin-left:10px"
+<div style="float:left;position:relative;display:inline-block;margin-left:5px"
 onmouseover="t2.style.display='block'" onmouseout="t2.style.display='none'">
 
   <a href="https://canva.link/5tleqc1ylp4xvpa" target="_blank"><button onclick="openPopup('asd')"
@@ -186,7 +186,7 @@ onmouseover="t2.style.display='block'" onmouseout="t2.style.display='none'">
 
 </div>
 
-<div style="float:left;position:relative;display:inline-block;margin-left:10px"
+<div style="float:left;position:relative;display:inline-block;margin-left:5px"
 onmouseover="t3.style.display='block'" onmouseout="t3.style.display='none'">
 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQZGtP1bCpNNwG-KDSvKGHfIhtr4AwvZqcY3zMmJsQdTZ5WQ/viewform" target="_blank"><button onclick="openPopup('zxc')"
@@ -200,7 +200,7 @@ onmouseover="t3.style.display='block'" onmouseout="t3.style.display='none'">
 
 </div>
 
-<div style="float:left;position:relative;display:inline-block;margin-left:10px"
+<div style="float:left;position:relative;display:inline-block;margin-left:5px"
 onmouseover="t4.style.display='block'" onmouseout="t4.style.display='none'">
 
   <a href="https://hellofriday.notion.site/Design-Style-Directory-2b5270ee6f928055ae72eb2b944dfc58" target="_blank"><button onclick="openPopup('mnb')"
@@ -215,7 +215,7 @@ onmouseover="t4.style.display='block'" onmouseout="t4.style.display='none'">
 </div>
 
 <!-- KANAN -->
-<div style="float:right;position:relative;display:inline-block"
+<div style="float:right;position:relative;display:inline-block;margin-left:5px"
 onmouseover="t7.style.display='block'" onmouseout="t7.style.display='none'">
 
   <button onclick="openPopup('credit')"
@@ -229,7 +229,7 @@ onmouseover="t7.style.display='block'" onmouseout="t7.style.display='none'">
 
 </div>
 
-<div style="float:right;position:relative;display:inline-block"
+<div style="float:right;position:relative;display:inline-block;margin-left:5px"
 onmouseover="t8.style.display='block'" onmouseout="t8.style.display='none'">
 
   <button id="daftarisi" onclick="openPopup('music')"
@@ -239,6 +239,22 @@ onmouseover="t8.style.display='block'" onmouseout="t8.style.display='none'">
 
   <div id="t8" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
     Musik
+  </div>
+
+</div>
+
+<div style="float:right;position:relative;display:inline-block;margin-left:5px"
+onmouseover="t9.style.display='block'"
+onmouseout="t9.style.display='none'">
+
+  <button onclick="openReviewPopup()"
+  style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
+    <i class="fa-solid fa-star"></i>
+  </button>
+
+  <div id="t9"
+  style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
+    Review
   </div>
 
 </div>
@@ -275,8 +291,8 @@ onmouseover="t8.style.display='block'" onmouseout="t8.style.display='none'">
     <div class="credit-box">
       <h2>Credit</h2>
       <p>Developer by <b>Hamba Allah</b></p>
-      <p>Version : v1.2</p>
-      <p>Last Updated : 11/05/2026</p>
+      <p>Version : v1.21</p>
+      <p>Last Updated : 13/05/2026</p>
       <p>Thanks for using this website</p>
     </div>
 
@@ -591,7 +607,7 @@ window.addEventListener("scroll", function() {
 
 <div style="max-width:500px;margin:auto">
   <textarea id="acakMetaInput"
-  placeholder="Contoh: hari pendidikan, hari pendidikan nasional, belajar, siswa, sekolah"
+  placeholder="2 metadata pertama adalah Super Keyword. Contoh: poster hari pendidikan, hari pendidikan, hari pendidikan nasional, belajar, sekolah"
   style="width:100%;height:80px;padding:8px;border:1px solid #ccc;border-radius:6px;resize:both;"></textarea>
 
   <br><br>
@@ -845,6 +861,165 @@ function openPopup(id){
 function closePopup(id){
   document.getElementById(id).style.display="none";
 }
+</script>
+
+
+<!-- OVERLAY -->
+<div id="reviewOverlay"
+style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.5);
+z-index:9998;
+">
+</div>
+
+<!-- POPUP -->
+<div id="reviewPopup"
+style="
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+text-align:center;
+width:320px;
+z-index:9999;
+">
+
+<h3 style="margin-bottom:25px;">
+Apakah anda menyukai website ini?
+</h3>
+
+<div style="
+display:flex;
+justify-content:center;
+gap:20px;
+align-items:center;
+height:80px;
+">
+
+<button id="yesBtn"
+onclick="jawabIya()"
+style="
+padding:10px 20px;
+border:none;
+border-radius:8px;
+background:#28a745;
+color:white;
+cursor:pointer;
+font-size:14px;
+">
+Iya
+</button>
+
+<button id="noBtn"
+style="
+padding:10px 20px;
+border:none;
+border-radius:8px;
+background:#dc3545;
+color:white;
+cursor:pointer;
+font-size:14px;
+position:relative;
+transition:0.1s;
+">
+Tidak
+</button>
+
+</div>
+</div>
+
+<!-- THANKS -->
+<div id="thanksPopup"
+style="
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+text-align:center;
+width:320px;
+z-index:9999;
+">
+
+<img src="https://media.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif"
+style="width:120px;margin-bottom:15px;">
+
+<h2>Terima Kasih 😁</h2>
+<p>Terima kasih sudah menyukai website ini ❤️</p>
+
+</div>
+
+<script>
+const reviewPopup = document.getElementById("reviewPopup");
+const reviewOverlay = document.getElementById("reviewOverlay");
+const noBtn = document.getElementById("noBtn");
+const thanksPopup = document.getElementById("thanksPopup");
+
+function openReviewPopup(){
+  reviewPopup.style.display = "block";
+  reviewOverlay.style.display = "block";
+}
+
+function jawabIya(){
+  reviewPopup.style.display = "none";
+  thanksPopup.style.display = "block";
+
+  setTimeout(() => {
+    thanksPopup.style.display = "none";
+    reviewOverlay.style.display = "none";
+  }, 3000);
+}
+
+let initialRect;
+let escapeDistance = -70;
+
+function updateInitialPosition(){
+  initialRect = noBtn.getBoundingClientRect();
+}
+
+reviewPopup.addEventListener("mouseenter", updateInitialPosition);
+
+document.addEventListener("mousemove", (e) => {
+
+  if(!initialRect) return;
+
+  const btnX = initialRect.left + initialRect.width/2;
+  const btnY = initialRect.top + initialRect.height/2;
+
+  const escapeX = btnX;
+  const escapeY = btnY + escapeDistance;
+
+  const distanceToInitial = Math.hypot(
+    e.clientX - btnX,
+    e.clientY - btnY
+  );
+
+  if(distanceToInitial < 100){
+    noBtn.style.transform = "translateY(-70px)";
+  }
+
+  const distanceToEscape = Math.hypot(
+    e.clientX - escapeX,
+    e.clientY - escapeY
+  );
+
+  if(distanceToEscape < 50){
+    noBtn.style.transform = "translateY(0)";
+  }
+
+});
 </script>
 </body>
 </html>
