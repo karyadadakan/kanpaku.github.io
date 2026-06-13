@@ -220,7 +220,7 @@ onmouseover="t7.style.display='block'" onmouseout="t7.style.display='none'">
 
   <button onclick="openPopup('credit')"
   style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
-    <i class="fa-solid fa-info"></i>
+    <i class="fa-solid fa-user-gear"></i>
   </button>
 
   <div id="t7" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
@@ -244,19 +244,31 @@ onmouseover="t8.style.display='block'" onmouseout="t8.style.display='none'">
 </div>
 
 <div style="float:right;position:relative;display:inline-block;margin-left:5px"
-onmouseover="t9.style.display='block'"
-onmouseout="t9.style.display='none'">
+onmouseover="t9.style.display='block'" onmouseout="t9.style.display='none'">
 
-  <button onclick="openReviewPopup()"
-  style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
-    <i class="fa-solid fa-star"></i>
+  <button onclick="openGuide()"
+  style="
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:none;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+  ">
+    <i class="fa-solid fa-triangle-exclamation"></i>
   </button>
 
-  <div id="t9"
-  style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
-    Review
+    <div id="t9" style="display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;background:#000;color:#fff;padding:4px 6px;border-radius:4px;font-size:12px;white-space:nowrap">
+    Some Issue Canva
   </div>
 
+
+  <div style="
+    display:none;
+  "></div>
+
+</div>
 </div>
 
 <!-- penting: reset float -->
@@ -272,9 +284,9 @@ onmouseout="t9.style.display='none'">
     <div class="grid">
 
       <div class="artist featured">
-        <img src="https://i.ibb.co.com/8DsM27YQ/Thumbnail-Lagu-2.png">
-        <h4>Playlist Lagu Jawa</h4>
-        <a href="https://youtube.com/playlist?list=PL4MEoikXGFZkIBNYwaWMN3y6n5GDZaRGS&si=lA4Qfx8v1pRzcQaI" target="_blank">Play</a>
+	<img src="https://i.ibb.co.com/8DsM27YQ/Thumbnail-Lagu-2.png">
+	<h4>Playlist Lagu Jawa</h4>
+	<a href="https://youtube.com/playlist?list=PL4MEoikXGFZkIBNYwaWMN3y6n5GDZaRGS&si=lA4Qfx8v1pRzcQaI" target="_blank">Play</a>
       </div>
 
       <div class="artist"><img src="https://i.ibb.co.com/MxNJqYsn/Ajeng-febria.jpg" alt="Ajeng febria"><h4>Ajeng Febria</h4><a href="https://youtube.com/playlist?list=PLEjhhcElu8fj0FF_zidvq6J1Nx_1mIFxw&si=NYGKSUgVXwPxRTvb" target="_blank">Play</a></div>
@@ -289,11 +301,50 @@ onmouseout="t9.style.display='none'">
     <div class="close" onclick="closePopup('credit')">✖</div>
 
     <div class="credit-box">
-      <h2>Credit</h2>
-      <p>Developer by <b>Hamba Allah</b></p>
-      <p>Version : v1.23</p>
-      <p>Last Updated : 07/08/2026</p>
-      <p>Thanks for using this website</p>
+      <center><b><h2>Website Credits</h2></b></center>
+
+<style>
+table, td {
+  border: none;
+}
+</style>
+
+<table cellspacing="0" cellpadding="2">
+  <tr>
+    <td>Developer by</td>
+    <td>:</td>
+    <td>Hamba Allah</td>
+  </tr>
+  <tr>
+    <td>Version</td>
+    <td>:</td>
+    <td>v1.4</td>
+  </tr>
+  <tr>
+    <td>Last Updated</td>
+    <td>:</td>
+    <td>13/06/2026</td>
+  </tr>
+</table>
+<center><p>"Thank you for using this website <i class="fa-solid fa-face-grin-beam"></i>"</p></center>
+
+
+<button onclick="openReviewPopup()" style="
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 18px;
+  border:none;
+  border-radius:10px;
+  background:#000;
+  color:white;
+  cursor:pointer;
+  font-size:14px;
+  margin:auto;
+">
+Review this Website
+</button>
     </div>
 
   </div>
@@ -308,21 +359,87 @@ onmouseout="t9.style.display='none'">
       <h2>Sosial Media</h2>
 
       <div class="sosmed">
-        <a href="https://youtube.com" target="_blank">
-          <i class="fa-brands fa-youtube"></i> YouTube
-        </a>
+	<a href="https://youtube.com" target="_blank">
+	  <i class="fa-brands fa-youtube"></i> YouTube
+	</a>
 
-        <a href="https://tiktok.com" target="_blank">
-          <i class="fa-brands fa-tiktok"></i> TikTok
-        </a>
+	<a href="https://tiktok.com" target="_blank">
+	  <i class="fa-brands fa-tiktok"></i> TikTok
+	</a>
 
-        <a href="https://instagram.com" target="_blank">
-          <i class="fa-brands fa-instagram"></i> Instagram
-        </a>
+	<a href="https://instagram.com" target="_blank">
+	  <i class="fa-brands fa-instagram"></i> Instagram
+	</a>
       </div>
     </div>
 
   </div>
+</div>
+
+<div id="guideOverlay"
+style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:9998;
+">
+</div>
+
+<div id="guidePopup" style="
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+width:350px;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.3);
+z-index:9999;
+max-height:80vh;
+overflow-y:auto;
+">
+
+<button onclick="closeGuide()" style="
+position:absolute;
+top:8px;
+right:10px;
+border:none;
+background:none;
+font-size:18px;
+cursor:pointer;
+">×</button>
+<center><b><h3>Some Issue Canva</h3></b></center>
+
+<select onchange="changeLang(this.value)">
+  <option value="id">Indonesia</option>
+  <option value="en">English</option>
+</select>
+
+<hr>
+
+<div id="guideList"></div>
+
+<div style="text-align:center; margin-top:15px;">
+  <a href="https://canva.link/kxi6ovunvfaring" target="_blank" style="text-decoration:none;">
+    <button style="
+      padding:8px 14px;
+      border:none;
+      border-radius:8px;
+      background:#00c4cc;
+      color:white;
+      cursor:pointer;
+      font-size:13px;
+    ">
+      Selengkapnya<i class="fa-solid fa-angles-right"></i>
+    </button>
+  </a>
+</div>
 </div>
 
 <script>
@@ -409,26 +526,26 @@ window.addEventListener("scroll", function() {
     <div>
       <h2>INDONESIA</h2>
       <ul>
-        <li><a href="#b1">Data Kontak</a></li>
-        <li><a href="#b2">Nama Wanita</a></li>
-        <li><a href="#b3">Nama Pria</a></li>
-        <li><a href="#b4">Nama Bisnis</a></li>
+	<li><a href="#b1">Data Kontak</a></li>
+	<li><a href="#b2">Nama Wanita</a></li>
+	<li><a href="#b3">Nama Pria</a></li>
+	<li><a href="#b4">Nama Bisnis</a></li>
 
-        <ul>
-          <li><a href="#as1">Perbankan, keuangan, dan asuransi</a></li>
-          <li><a href="#as2">Agama dan peribadatan</a></li>
-          <li><a href="#as3">Makanan dan Minuman</a></li>
-          <li><a href="#as4">Pelayanan Kesehatan</a></li>
-          <li><a href="#as5">Properti, komersial, retail dan ruang publik</a></li>
-          <li><a href="#as6">Teknologi dan perangkat lunak</a></li>
-          <li><a href="#as7">Kesehatan, kebugaran dan gaya hidup</a></li>
-          <li><a href="#as8">Kecantikan</a></li>
-          <li><a href="#as9">Fashion/pakaian</a></li>
-          <li><a href="#as10">Ritel umum</a></li>
-          <li><a href="#as11">Pemasaran, periklanan, desain, dan humas</a></li>
-          <li><a href="#as12">Sekolah dan pendidikan</a></li>
-          <li><a href="#as13">Perjalanan dan pariwisata</a></li>
-        </ul>
+	<ul>
+	  <li><a href="#as1">Perbankan, keuangan, dan asuransi</a></li>
+	  <li><a href="#as2">Agama dan peribadatan</a></li>
+	  <li><a href="#as3">Makanan dan Minuman</a></li>
+	  <li><a href="#as4">Pelayanan Kesehatan</a></li>
+	  <li><a href="#as5">Properti, komersial, retail dan ruang publik</a></li>
+	  <li><a href="#as6">Teknologi dan perangkat lunak</a></li>
+	  <li><a href="#as7">Kesehatan, kebugaran dan gaya hidup</a></li>
+	  <li><a href="#as8">Kecantikan</a></li>
+	  <li><a href="#as9">Fashion/pakaian</a></li>
+	  <li><a href="#as10">Ritel umum</a></li>
+	  <li><a href="#as11">Pemasaran, periklanan, desain, dan humas</a></li>
+	  <li><a href="#as12">Sekolah dan pendidikan</a></li>
+	  <li><a href="#as13">Perjalanan dan pariwisata</a></li>
+	</ul>
 
       </ul>
     </div>
@@ -438,26 +555,26 @@ window.addEventListener("scroll", function() {
       <h2>ARAB</h2>
 
       <ul>
-        <li><a href="#bbb1">Contact Data</a></li>
-        <li><a href="#bbb2">Female Name</a></li>
-        <li><a href="#bbb3">Male Name</a></li>
-        <li><a href="#bbb4">Business Name</a></li>
+	<li><a href="#bbb1">Contact Data</a></li>
+	<li><a href="#bbb2">Female Name</a></li>
+	<li><a href="#bbb3">Male Name</a></li>
+	<li><a href="#bbb4">Business Name</a></li>
 
-        <ul>
-          <li><a href="#ar1">Banking, Finance, and Insurance</a></li>
-          <li><a href="#ar2">Fashion and General Clothing</a></li>
-          <li><a href="#ar3">General Retail</a></li>
-          <li><a href="#ar4">Marketing, Advertising, Design and Public Relations</a></li>
-          <li><a href="#ar5">Real Estate, Commercial and Public Places and Rental Places</a></li>
-          <li><a href="#ar6">Technology and Software</a></li>
-          <li><a href="#ar7">Wellness, Fitness and Lifestyle</a></li>
-          <li><a href="#ar8">Beauty</a></li>
-          <li><a href="#ar9">Food and Beverages</a></li>
-          <li><a href="#ar10">Health Care</a></li>
-          <li><a href="#ar11">Content, Media and Entertainment</a></li>
-          <li><a href="#ar12">Schools and Education</a></li>
-          <li><a href="#ar13">Travel and Tourism</a></li>
-        </ul>
+	<ul>
+	  <li><a href="#ar1">Banking, Finance, and Insurance</a></li>
+	  <li><a href="#ar2">Fashion and General Clothing</a></li>
+	  <li><a href="#ar3">General Retail</a></li>
+	  <li><a href="#ar4">Marketing, Advertising, Design and Public Relations</a></li>
+	  <li><a href="#ar5">Real Estate, Commercial and Public Places and Rental Places</a></li>
+	  <li><a href="#ar6">Technology and Software</a></li>
+	  <li><a href="#ar7">Wellness, Fitness and Lifestyle</a></li>
+	  <li><a href="#ar8">Beauty</a></li>
+	  <li><a href="#ar9">Food and Beverages</a></li>
+	  <li><a href="#ar10">Health Care</a></li>
+	  <li><a href="#ar11">Content, Media and Entertainment</a></li>
+	  <li><a href="#ar12">Schools and Education</a></li>
+	  <li><a href="#ar13">Travel and Tourism</a></li>
+	</ul>
 
       </ul>
     </div>
@@ -476,22 +593,22 @@ window.addEventListener("scroll", function() {
       <li><a href="#bb4">Business Name</a></li>
 
       <ul>
-        <li><a href="#qw1">Banking Finance Insurance</a></li>
-        <li><a href="#qw2">Faith and Worship</a></li>
-        <li><a href="#qw3">Food and Beverages</a></li>
-        <li><a href="#qw4">Healthcare</a></li>
-        <li><a href="#qw5">Content Media and Entertainment</a></li>
-        <li><a href="#qw6">Other</a></li>
-        <li><a href="#qw7">Schools and Education</a></li>
-        <li><a href="#qw8">Travel and Tourism</a></li>
-        <li><a href="#qw9">Beauty</a></li>
-        <li><a href="#qw10">Fashion and General Apparel</a></li>
-        <li><a href="#qw11">General Retail</a></li>
-        <li><a href="#qw12">Marketing, Advertising, Design, and PR</a></li>
-        <li><a href="#qw13">Not-for-profits</a></li>
-        <li><a href="#qw14">Real Estate, Rental, and Public Spaces</a></li>
-        <li><a href="#qw15">Technology and Software</a></li>
-        <li><a href="#qw16">Wellness, Fitness, and Lifestyle</a></li>
+	<li><a href="#qw1">Banking Finance Insurance</a></li>
+	<li><a href="#qw2">Faith and Worship</a></li>
+	<li><a href="#qw3">Food and Beverages</a></li>
+	<li><a href="#qw4">Healthcare</a></li>
+	<li><a href="#qw5">Content Media and Entertainment</a></li>
+	<li><a href="#qw6">Other</a></li>
+	<li><a href="#qw7">Schools and Education</a></li>
+	<li><a href="#qw8">Travel and Tourism</a></li>
+	<li><a href="#qw9">Beauty</a></li>
+	<li><a href="#qw10">Fashion and General Apparel</a></li>
+	<li><a href="#qw11">General Retail</a></li>
+	<li><a href="#qw12">Marketing, Advertising, Design, and PR</a></li>
+	<li><a href="#qw13">Not-for-profits</a></li>
+	<li><a href="#qw14">Real Estate, Rental, and Public Spaces</a></li>
+	<li><a href="#qw15">Technology and Software</a></li>
+	<li><a href="#qw16">Wellness, Fitness, and Lifestyle</a></li>
       </ul>
 
     </ul>
@@ -746,8 +863,8 @@ for (let k in idBisnis) {
   idBisnis[k].forEach(n =>
     b.innerHTML += `
       <tr>
-        <td>${n}</td>
-        <td><button onclick="copyCustom('${n}')">Copy</button></td>
+	<td>${n}</td>
+	<td><button onclick="copyCustom('${n}')">Copy</button></td>
       </tr>
     `
   );
@@ -777,8 +894,8 @@ for (let k in enBisnis) {
   enBisnis[k].forEach(n => {
     e.innerHTML += `
       <tr>
-        <td>${n}</td>
-        <td><button onclick="copyCustom('${n}')">Copy</button></td>
+	<td>${n}</td>
+	<td><button onclick="copyCustom('${n}')">Copy</button></td>
       </tr>
     `;
   });
@@ -810,8 +927,8 @@ for (let k in arbBisnis) {
   arbBisnis[k].forEach(n => {
     a.innerHTML += `
       <tr>
-        <td>${n}</td>
-        <td><button onclick="copyCustom('${n}')">Copy</button></td>
+	<td>${n}</td>
+	<td><button onclick="copyCustom('${n}')">Copy</button></td>
       </tr>
     `;
   });
@@ -876,6 +993,8 @@ z-index:9998;
 ">
 </div>
 
+
+
 <!-- POPUP -->
 <div id="reviewPopup"
 style="
@@ -892,6 +1011,16 @@ text-align:center;
 width:320px;
 z-index:9999;
 ">
+
+<button onclick="closeReviewPopup()" style="
+  position:absolute;
+  top:8px;
+  right:10px;
+  border:none;
+  background:none;
+  font-size:20px;
+  cursor:pointer;
+">×</button>
 
 <h3 style="margin-bottom:25px;">
 Apakah anda menyukai website ini?
@@ -973,6 +1102,11 @@ function openReviewPopup(){
   reviewOverlay.style.display = "block";
 }
 
+function closeReviewPopup(){
+  reviewPopup.style.display = "none";
+  reviewOverlay.style.display = "none";
+}
+
 function jawabIya(){
   reviewPopup.style.display = "none";
   thanksPopup.style.display = "block";
@@ -1021,6 +1155,231 @@ document.addEventListener("mousemove", (e) => {
   }
 
 });
+
+const guideData = {
+  id: [
+{
+  title: "Konten yang berpotensi menyakitkan/sensitif",
+  contentIntro: "Kekerasan grafis, konten seksual eksplisit, ujaran kebencian atau aktivitas terkait, diskriminasi, konten terlarang (narkoba dan senjata), isu sensitif, saran medis, atau keselamatan. Kami tidak akan menerima hal-hal berikut ke dalam perpustakaan kami atau halaman profil:",
+  content: [
+  "Konten NSFS dan NSFW; ketelanjangan/sexual, penggambaran yang tidak pantas atau merendahkan gender apa pun, kekerasan/darah, konten yang memicu trauma",
+  "Gambar yang memicu terkait kesehatan mental (bunuh diri, depresi), kekerasan, serta gangguan makan (eating disorder, body dysmorphia, dll.)",
+  "Baik seksualisasi yang realistis maupun tersirat serta pelecehan terhadap gender apa pun",
+  "Konten yang ofensif, terlalu seksual, atau stereotip gender, termasuk tokoh publik atau selebriti",
+  "Gambar realistis luka terbuka, darah, konsumsi narkoba ilegal, atau senjata yang diarahkan secara agresif ke diri sendiri atau orang lain",
+  "Konten rasis/xenofobia yang mengaitkan ras atau agama dengan kejadian atau stereotip tertentu",
+  "Gambar hewan yang tidak wajar seperti diposisikan seperti manusia, seksual, atau dalam posisi seksual",
+  "Konten budaya atau sejarah yang tidak pantas dan dapat dianggap menyinggung",
+  "Penggambaran diskriminatif terhadap penyandang disabilitas atau gangguan tertentu",
+  "Kata kunci atau teks yang stereotip, menghina, atau tidak pantas",
+  "Template yang mengandung klaim menyesatkan atau berbahaya, termasuk klaim tentang produk atau layanan serta saran kesehatan yang salah",
+  "Klaim bahwa suatu produk atau layanan dapat menjamin pencegahan, kekebalan, atau penyembuhan",
+  "Klaim penyembuhan untuk penyakit yang tidak dapat disembuhkan",
+  "Klaim, tips, atau trik yang berlebihan atau tidak realistis",
+  "Promosi yang mengklaim dapat mengubah atau menekan orientasi seksual atau identitas gender seseorang",
+  "Klaim palsu atau menyesatkan tentang fitur, kualitas, atau fungsi produk",
+  "Klaim hasil yang tidak realistis"
+  ]
+},
+    {
+      title: "Orisinalitas atau Kekayaan Intelektual",
+      contentIntro: "Konten bermerek dagang atau berhak cipta, kutipan yang tidak memenuhi pedoman, atau keberpihakan politik. Kami tidak akan menerima hal-hal berikut ke dalam perpustakaan kami atau halaman profil:",
+      content: [
+"Kami tidak menerima kiriman yang disalin. Template yang diajukan harus merupakan karya asli. Canva menghormati hak seniman dan pemilik konten, serta mematuhi Digital Millennium Copyright Act 1998 (\"DMCA\"). Untuk informasi lebih lanjut, baca Ketentuan Penggunaan Canva.",
+"Logo/ikon atau merek terkenal yang mudah dikenali.",
+"Foto yang menampilkan referensi terhadap merek, baik berupa logo, teks, maupun produk nyata.",
+"Foto dengan tokoh terkenal atau kerumunan dengan wajah yang mudah dikenali, kecuali Anda dapat menyediakan dokumen pelepasan hak/formulir bebas royalti yang sesuai.",
+"Karakter, kartun, figur, atau tokoh terkenal yang mudah dikenali.",
+"Kutipan (dengan atau tanpa atribusi) yang jelas terkait dengan individu, entitas, atau karya berhak cipta, termasuk lirik, film, buku, dan puisi.",
+"Keberpihakan politik. Konten yang mendukung atau menentang tokoh politik tertentu dan/atau partai tidak akan diterima."      ]
+    },
+    {
+      title: "Bernilai jual rendah",
+      contentIntro: "Nilai ditentukan berdasarkan nilai desain dan kegunaan komersial. Kami tidak akan menerima hal-hal berikut ke dalam perpustakaan kami:",
+      content: [
+"Template yang tidak orisinal dan dianggap terlalu mirip dengan template lain di profil pribadi Anda atau di perpustakaan.",
+"Template yang tidak dapat disesuaikan atau memerlukan perangkat lunak/platform pihak ketiga untuk diedit. Pastikan template Anda memiliki kegunaan yang jelas dan dapat disesuaikan di Canva.",
+"Template yang tidak memenuhi persyaratan minimum seperti jumlah halaman yang dibutuhkan atau jumlah bidang teks yang diperlukan.",
+"Template dengan nilai terbatas untuk kategori khusus. Jika Anda membuat konten khusus, misalnya konten edukasi, pastikan template Anda memenuhi semua panduan khusus dan bahwa Anda adalah Kreator Khusus yang terverifikasi."
+      ]
+    },
+    {
+      title: "Metadata yang salah",
+      contentIntro: "Metadata yang salah, termasuk pelabelan/kata kunci yang tidak tepat (seperti ofensif atau menggunakan banyak bahasa), konten bermerek dagang, atau konten berhak cipta, tidak diperbolehkan.",
+      content: [
+"Jangan mengisi item dengan kata kunci berlebihan atau pengulangan kata kunci (keyword stuffing).",
+"Hindari kata subjektif seperti luar biasa, terbaik, atau sejenisnya karena bersifat opini.",
+"Judul template tidak boleh menyesatkan atau menyamar sebagai jenis dokumen atau platform lain.",
+"Hindari penggunaan bahasa asing yang tidak relevan dengan lokasi tujuan template.",
+"Judul harus ditulis dengan tata bahasa benar dan format Title Case, kecuali template LOTE.",
+"Setiap template tidak boleh memiliki lebih dari 20 kata kunci."
+      ]
+    },
+    {
+      title: "Konten yang tidak pantas",
+      contentIntro: "Salinan yang salah, tidak lengkap, atau tidak aman digunakan, serta promosi merek atau individu tertentu. Pastikan Anda menggunakan teks yang benar dan aman untuk menghindari tautan berbahaya, URL, dan/atau detail lain di template Anda. Teks yang aman dapat ditemukan dalam sumber daya Persyaratan Salinan Template.",
+      content: [
+"Template yang memuat detail kontak atau informasi yang salah, tidak lengkap, atau tidak dianggap aman untuk digunakan.",
+"Template yang berisi tautan, pegangan, URL, atau kode QR yang tidak aman untuk digunakan dan/atau mungkin mempromosikan merek atau individu tertentu.",
+"Template yang mengandung nama atau merek bisnis yang mungkin tidak aman untuk digunakan.",
+"Pastikan teks relevan dengan desain dan terlihat siap digunakan. Jika menggunakan Lorem Ipsum, harap sertakan judul, subjudul, dan teks minimal 20 kata yang relevan dengan desain Anda.",
+"Template yang mengandung kesalahan ejaan, tata bahasa, dan/atau format yang mencolok.",
+"Template yang memuat elemen, video, dan/atau animasi yang tidak sesuai untuk jenis dokumen yang dipilih."
+      ]
+    }
+  ],
+
+  en: [
+    {
+      title: "Potentially offensive or sensitive content",
+      contentIntro: "Graphic violence, sexually explicit, hateful speech or activities, discrimination, prohibited content (drugs and weapons), sensitive issues, medical, or safety advice. We won't accept the following into our library or on profile pages:",
+      content: [
+"NSFS and NSFW content; nudity/sex, inappropriate or objectifying portrayals of any gender, violence/gore, triggering content",
+"Triggering images involving mental health (suicide, depression), abuse, and fitness (eating disorder, body dysmorphia, etc.)",
+"Both realistic and implied sexualization and degradation of any gender",
+"Offensive, oversexualized, and gender stereotypes, or that of other known personalities/celebrities",
+"Realistic depictions of open cuts, blood, consumption, illegal drugs, or weapons pointed aggressively to self or others",
+"Racist/xenophobic conceptual images tying race or religion to certain events or stereotypes",
+"Unnatural photos of animals - posing like people, sexualized, or in sexual positions, etc.",
+"Cultural and historically inappropriate content that can be considered as offensive",
+"Offensive depictions of people with disabilities or disorders in discrimination or stereotypes",
+"Stereotypical, derogatory, and inappropriate keywords/text",
+"Templates containing misleading, deceptive, or potentially harmful claims or advice. This includes the effectiveness or characteristics of a product and/or service and misleading health and safety advice or claims.",
+"Claims that a product or service can guarantee prevention of, immunity from, or a cure",
+"Claims of cures for incurable diseases",
+"Exaggerated claims, tips, or tricks",
+"Promoting claims to change or suppress one's sexual orientation, or to suppress one's gender identity",
+"False or misleading claims about product attributes, quality, or functionality",
+"Claims of unrealistic results"
+      ]
+    },
+    {
+      title: "Originality or intellectual property",
+      contentIntro: "Trademarked or copyright content, quote that don't meet guidelines, political partiality. We won't accept the following into our library or on profile pages:",
+      content: [
+"We won't accept copied submissions. Templates submitted must be original work. Canva respects artist and content owner rights and complies with the Digital Millennium Copyright Act of 1998 (\"DMCA\"). For more information, refer to the Canva Terms of Use.",
+"Recognizable logos/icons or known brands.",
+"Photos showing any references to brands, including logos, text, or actual products.",
+"Photos with famous characters or personalities, or crowd shots with recognizable faces unless you provide proper release forms or royalty-free documentation.",
+"Recognizable characters, cartoons, figures, or famous people.",
+"Non-attributed and attributed quotes clearly linked to an individual, entity, or copyrighted work including lyrics, films, books, and poems.",
+"Political partiality. Content that supports or opposes certain political personalities and/or parties is not accepted."
+      ]
+    },
+    {
+      title: "Lack of Commercial value",
+      contentIntro: "Value is determined by both design value and commercial use cases. We won't accept the following into our library:",
+      content: [
+"Unoriginal template and the design has been deemed as too similar to others on your personal profile or in the library.",
+"Templates that can't be customized or require third-party software or platforms to edit. Ensure the template has a clear use case and is editable in Canva.",
+"Template doesn't meet minimum requirements such as required number of pages or text fields.",
+"Template has limited value for specialty content. If creating specialty content (e.g. education), ensure it follows all specialty guidelines and that you are a verified Specialty Creator."
+      ]
+    },
+    {
+      title: "Incorrect metadata",
+      contentIntro: "Learn more about metadata here. Incorrect labeling and/or keywords (including offensive or multiple languages), trademarked or copyright content",
+      content: [
+"Don't spam your item title with keywords — either multiple keywords or the same words repeated more than once. This is known as keyword stuffing.",
+"Avoid subjective terms like brilliant, amazing, or best. These words describe opinion rather than the actual file content.",
+"Template titles must not be misleading to users or impersonate other document types or third-party platforms.",
+"Avoid using words or phrases in languages other than the template’s target locale, unless widely understood.",
+"Titles should be grammatically correct and use Title Case, except for LOTE templates where exceptions may apply.",
+"No more than 20 keywords are allowed per template title."
+      ]
+    },
+    {
+      title: "Inappropriate content",
+      contentIntro: "Incorrect, incomplete, or not safe-to-use copy, and brand or individual promotion. Ensure you're using the correct safe-to-use text to avoid malicious links, URLs and/or details in your templates. Safe-to-use text can be found in the Template Copy Requirements resource.",
+      content: [
+"Templates containing contact details or information that is incorrect, incomplete, or not considered safe-to-use.",
+"Templates containing links, handles, URLs, or QR codes that aren't safe-to-use and/or may be promoting a brand or individual.",
+"Templates containing names or business names that may not be safe-to-use.",
+"Ensure text is relevant to the design and looks in-use. If using Lorem Ipsum, ensure headings, subheadings, and text blocks under 20 words match the design theme.",
+"Templates containing obvious spelling, grammar, and/or formatting errors.",
+"Template contains elements, videos, and/or animations that are inappropriate for the selected document type."
+      ]
+    }
+  ]
+};
+
+let currentLang = "id";
+
+function openGuide(){
+  document.getElementById("guidePopup").style.display = "block";
+  document.getElementById("guideOverlay").style.display = "block";
+  renderGuide();
+}
+
+function closeGuide(){
+  document.getElementById("guidePopup").style.display = "none";
+  document.getElementById("guideOverlay").style.display = "none";
+}
+
+function changeLang(lang){
+  currentLang = lang;
+  renderGuide();
+}
+
+function renderGuide(){
+  const list = document.getElementById("guideList");
+  list.innerHTML = "";
+
+  guideData[currentLang].forEach((item, i) => {
+
+    list.innerHTML += `
+      <div style="margin-bottom:10px;">
+
+	<button onclick="toggleGuide(${i})"
+	style="
+	  width:100%;
+	  text-align:left;
+	  padding:10px;
+	  border:none;
+	  background:#f2f2f2;
+	  border-radius:6px;
+	  cursor:pointer;
+	  display:flex;
+	  justify-content:space-between;
+	  align-items:center;
+	">
+
+	  <span>${item.title}</span>
+
+	  <span id="icon${i}">▶</span>
+
+	</button>
+
+	<div id="g${i}" style="
+	  display:none;
+	  padding:8px;
+	  font-size:13px;
+	">
+
+        ${item.contentIntro ? `<p>${item.contentIntro}</p>` : ""}
+
+	  <ul style="margin:0; padding-left:18px;">
+  ${item.content.map(x => `<li>${x}</li>`).join("")}
+</ul>
+	</div>
+
+      </div>
+    `;
+  });
+}
+
+function toggleGuide(i){
+  let content = document.getElementById("g"+i);
+  let icon = document.getElementById("icon"+i);
+
+  if(content.style.display === "block"){
+    content.style.display = "none";
+    icon.innerHTML = "▶"; // segitiga ke kanan
+  } else {
+    content.style.display = "block";
+    icon.innerHTML = "▼"; // segitiga ke bawah
+  }
+}
 </script>
 </body>
 </html>
