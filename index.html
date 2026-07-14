@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<title>Placeholder Kanpa</title>
+<!-- Tambahan Favicon dengan Icon Font Awesome -->
+<link rel="icon" type="image/x-icon" href="https://i.ibb.co.com/Kx7KLbRL/Kanpa.png">
+
+<title>Kanpa Ipsum</title>
 <style>
 
 body {
@@ -53,15 +56,26 @@ button{padding:5px 8px;cursor:pointer}
   background:rgba(0,0,0,0.7);
   justify-content:center;
   align-items:center;
+  z-index: 1000;
 }
 
 /* box */
 .box{
   background:white;
   width:420px;
-  padding:15px;
+  padding:50px;
   border-radius:12px;
   position:relative;
+}
+
+/* Ukuran box musik diperlebar ke bawah (tinggi ditambah agar tidak terpotong) */
+#music .box {
+  width: 520px;
+  max-width: 90%;
+  padding: 30px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* close */
@@ -73,22 +87,28 @@ button{padding:5px 8px;cursor:pointer}
   font-size:18px;
 }
 
-/* GRID */
+/* GRID LAGU: Batasan tinggi ditambah dari 400px ke 550px agar tidak terpotong */
 .grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  max-height:300px;
+  grid-template-columns: repeat(2, 1fr);
+  gap:15px;
+  max-height: 550px;
   overflow-y:auto;
-  margin-top:10px;
+  margin-top:15px;
 }
 
 /* ARTIS */
 .artist{
+  width:100%;
+  box-sizing:border-box;
   background:#f2f2f2;
-  padding:10px;
+  padding:15px;
   border-radius:10px;
   text-align:center;
+}
+
+.artist h4{
+  margin: 4px 0;
 }
 
 .artist img{
@@ -107,7 +127,7 @@ button{padding:5px 8px;cursor:pointer}
   font-size:12px;
 }
 
-/* FEATURED */
+/* FEATURED: Membentang penuh di atas (2 kolom) */
 .featured{
   grid-column: span 2;
 }
@@ -138,6 +158,147 @@ button{padding:5px 8px;cursor:pointer}
 .credit-box table,
 .credit-box td {
   border: none;
+}
+
+/* Style untuk Dropdown Daftar Isi */
+details {
+  background: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  max-width: 500px; 
+}
+summary {
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+details[open] summary {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 5px;
+}
+
+/* STYLING SLIDER KETENTUAN BARU */
+.slider-outer-container {
+  max-width: 700px;
+  margin: 20px auto;
+  text-align: center;
+}
+/* Judul Keterangan Bahasa di atas gambar */
+.slide-label-top {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background: #333;
+  color: #fff;
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+/* Pembungkus slider dan tombol kanan kiri di samping */
+.slider-flex-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.slider-container {
+  position: relative;
+  width: 550px;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: zoom-in; /* Mengubah kursor saat diarahkan ke gambar */
+}
+/* Tombol di samping kanan dan kiri luar */
+.slider-side-btn {
+  background: #000;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+.slider-side-btn:hover {
+  background: #ff2d55;
+}
+.slider-dots {
+  text-align: center;
+  margin-top: 15px;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.dot.active {
+  background: #333;
+  width: 12px;
+  height: 12px;
+}
+
+/* STYLING POPUP LIGHTBOX (ZOOM GAMBAR) */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+.lightbox-close:hover {
+  color: #ff2d55;
 }
 </style>
 </head>
@@ -180,7 +341,7 @@ onmouseover="t1.style.display='block'" onmouseout="t1.style.display='none'">
 <div style="float:left;position:relative;display:inline-block;margin-left:5px"
 onmouseover="t2.style.display='block'" onmouseout="t2.style.display='none'">
 
-  <a href="https://canva.link/5tleqc1ylp4xvpa" target="_blank"><button onclick="openPopup('asd')"
+  <a href="https://karyadadakan.github.io/kanpakuwelek/" target="_blank"><button onclick="openPopup('asd')"
   style="width:40px;height:40px;border-radius:50%;border:none;background:#000;color:#fff;">
     <i class="fa-solid fa-chalkboard"></i>
   </button></a>
@@ -268,12 +429,8 @@ onmouseover="t9.style.display='block'" onmouseout="t9.style.display='none'">
     Some Issue Canva
   </div>
 
+  <div style="display:none;"></div>
 
-  <div style="
-    display:none;
-  "></div>
-
-</div>
 </div>
 
 <!-- penting: reset float -->
@@ -284,18 +441,21 @@ onmouseover="t9.style.display='block'" onmouseout="t9.style.display='none'">
   <div class="box">
     <div class="close" onclick="closePopup('music')">✖</div>
 
-    <center><h3>Playlist Lagu</h3></center>
-
+    <center><h2><b>Playlist Lagu</b></h2></center>
     <div class="grid">
 
+      <!-- Paling Atas: Featured membentang penuh -->
       <div class="artist featured">
 	<img src="https://i.ibb.co.com/8DsM27YQ/Thumbnail-Lagu-2.png">
 	<h4>Playlist Lagu Jawa</h4>
 	<a href="https://youtube.com/playlist?list=PL4MEoikXGFZkIBNYwaWMN3y6n5GDZaRGS&si=lA4Qfx8v1pRzcQaI" target="_blank">Play</a>
       </div>
 
+      <!-- Di bawahnya otomatis membelah menjadi kanan dan kiri -->
       <div class="artist"><img src="https://i.ibb.co.com/MxNJqYsn/Ajeng-febria.jpg" alt="Ajeng febria"><h4>Ajeng Febria</h4><a href="https://youtube.com/playlist?list=PLEjhhcElu8fj0FF_zidvq6J1Nx_1mIFxw&si=NYGKSUgVXwPxRTvb" target="_blank">Play</a></div>
-      <div class="artist"><img src="https://i.ibb.co.com/4RgZNcMF/rei-vania.jpg"><h4>Rei Vania</h4><a href="#">Play</a></div>
+      <div class="artist"><img src="https://i.ibb.co.com/Qjx469Vt/vaniaaaa.jpg"><h4>Rei Vania</h4><a href="https://youtube.com/playlist?list=PLWHewRfS9BTU&si=Y0kAVUFbhodPoPN4" target="_blank">Play</a></div>
+      <div class="artist"><img src="https://i.ibb.co.com/fzRftm4x/channels4-profile-1.jpg"><h4>Nayla Fardila</h4><a href="https://youtube.com/playlist?list=PLU_FcT2BDZcFVDlMhZenKX9_F-F2pyXtu&si=c_DAy2jByVmM-dw4" target="_blank">Play</a></div>
+      <div class="artist"><img src="https://i.ibb.co.com/7tqBQbQz/channels4-profile-2.jpg"><h4>La Tasya</h4><a href="https://youtube.com/playlist?list=PLe9Tj3LTTfb5LtThrCBwbzRBV6SHyMXvV&si=Rq7xfzCkx80yzVat" target="_blank">Play</a></div>
     </div>
   </div>
 </div>
@@ -308,20 +468,6 @@ onmouseover="t9.style.display='block'" onmouseout="t9.style.display='none'">
     <div class="credit-box">
       <center><b><h2>Website Credits</h2></b></center>
 
-<style>
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-td {
-  border: 1px solid #ccc;
-  padding: 6px;
-  vertical-align: top;
-}
-</style>
-
 <table cellspacing="0" cellpadding="2">
   <tr>
     <td>Developer by</td>
@@ -331,12 +477,12 @@ td {
   <tr>
     <td>Version</td>
     <td>:</td>
-    <td>v1.41</td>
+    <td>v1.5</td>
   </tr>
   <tr>
     <td>Last Updated</td>
     <td>:</td>
-    <td>14/06/2026</td>
+    <td>14/07/2026</td>
   </tr>
 </table>
 <center><p>"Thank you for using this website <i class="fa-solid fa-face-grin-beam"></i>"</p></center>
@@ -409,7 +555,7 @@ top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 background:white;
-width:350px;
+width:400px;
 padding:20px;
 border-radius:12px;
 box-shadow:0 0 15px rgba(0,0,0,0.3);
@@ -455,183 +601,107 @@ cursor:pointer;
 </div>
 </div>
 
-<script>
-function toast(){
-  let t = document.getElementById('toast');
-  if(!t) return;
-
-  t.style.opacity = 1;
-  t.style.transform = "translateY(0)";
-
-  setTimeout(()=>{
-    t.style.opacity = 0;
-    t.style.transform = "translateY(20px)";
-  }, 1500);
-}
-function copyText(id){navigator.clipboard.writeText(document.getElementById(id).innerText);toast()}
-function copyCustom(text){navigator.clipboard.writeText(text);toast()}
-function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let p=n.split(' ');t.innerHTML+=`<tr><td>${n}</td><td><button onclick="copyCustom('${n}')">Full</button><button onclick="copyCustom('${p[0]}')">Front</button><button onclick="copyCustom('${p.slice(1).join(' ')}')">Back</button></td></tr>`})}
-let hasilText = ""; // tambahan
-
-function hitungMetadata(){
-  let input = document.getElementById("inputMeta").value;
-
-  let data = input.split(",")
-    .map(x => x.trim())
-    .filter(x => x !== "");
-
-  document.getElementById("jumlahMeta").innerText = data.length;
-}
-
-function copyMetadata(){
-  let input = document.getElementById("inputMeta").value;
-
-  let data = input.split(",")
-    .map(x => x.trim())
-    .filter(x => x !== "");
-
-  let hasil = data.join(", ");
-
-  navigator.clipboard.writeText(hasil);
-
-  toast("Metadata berhasil disalin");
-}
-function copyAcak(){
-  if(!hasilAcakText) return;
-  navigator.clipboard.writeText(hasilAcakText);
-  toast("Hasil acakan berhasil disalin");
-}
-let timer;
-
-window.addEventListener("scroll", function() {
-  let btn = document.getElementById("backToTop");
-
-  // tampilkan saat scroll
-  btn.style.display = "block";
-
-  // reset timer
-  clearTimeout(timer);
-
-  // hilangkan setelah berhenti scroll 1 detik
-  timer = setTimeout(() => {
-    btn.style.display = "none";
-  }, 1500);
-});
-
-</script>
-
-  <div style="font-size:30px;"><center><h1><b>PLACEHOLDER KANPA</b></h1></center></div>
-
-  <h2>Ketentuan</h2>
-  <ul>
-    <li><a href="#jk1">Ketentuan ukuran font</a></li>
-    <li><a href="#jk2">Format tanggal, waktu dan harga</a></li>
-    <li><a href="#jk3">Penghitung metadata</a></li>
-    <li><a href="#jk4">Pengacak metadata</a></li>
-  </ul>
-
-<div style="display:flex;gap:40px;align-items:flex-start">
-
-  <!-- KIRI -->
-  <div style="width:45%">
-
-    <!-- INDONESIA -->
-    <div>
-      <h2>INDONESIA</h2>
-      <ul>
-	<li><a href="#b1">Data Kontak</a></li>
-	<li><a href="#b2">Nama Wanita</a></li>
-	<li><a href="#b3">Nama Pria</a></li>
-	<li><a href="#b4">Nama Bisnis</a></li>
-
-	<ul>
-	  <li><a href="#as1">Perbankan, keuangan, dan asuransi</a></li>
-	  <li><a href="#as2">Agama dan peribadatan</a></li>
-	  <li><a href="#as3">Makanan dan Minuman</a></li>
-	  <li><a href="#as4">Pelayanan Kesehatan</a></li>
-	  <li><a href="#as5">Properti, komersial, retail dan ruang publik</a></li>
-	  <li><a href="#as6">Teknologi dan perangkat lunak</a></li>
-	  <li><a href="#as7">Kesehatan, kebugaran dan gaya hidup</a></li>
-	  <li><a href="#as8">Kecantikan</a></li>
-	  <li><a href="#as9">Fashion/pakaian</a></li>
-	  <li><a href="#as10">Ritel umum</a></li>
-	  <li><a href="#as11">Pemasaran, periklanan, desain, dan humas</a></li>
-	  <li><a href="#as12">Sekolah dan pendidikan</a></li>
-	  <li><a href="#as13">Perjalanan dan pariwisata</a></li>
-	</ul>
-
-      </ul>
-    </div>
-
-    <!-- ARAB -->
-    <div style="margin-top:40px;">
-      <h2>ARAB</h2>
-
-      <ul>
-	<li><a href="#bbb1">Contact Data</a></li>
-	<li><a href="#bbb2">Female Name</a></li>
-	<li><a href="#bbb3">Male Name</a></li>
-	<li><a href="#bbb4">Business Name</a></li>
-
-	<ul>
-	  <li><a href="#ar1">Banking, Finance, and Insurance</a></li>
-	  <li><a href="#ar2">Fashion and General Clothing</a></li>
-	  <li><a href="#ar3">General Retail</a></li>
-	  <li><a href="#ar4">Marketing, Advertising, Design and Public Relations</a></li>
-	  <li><a href="#ar5">Real Estate, Commercial and Public Places and Rental Places</a></li>
-	  <li><a href="#ar6">Technology and Software</a></li>
-	  <li><a href="#ar7">Wellness, Fitness and Lifestyle</a></li>
-	  <li><a href="#ar8">Beauty</a></li>
-	  <li><a href="#ar9">Food and Beverages</a></li>
-	  <li><a href="#ar10">Health Care</a></li>
-	  <li><a href="#ar11">Content, Media and Entertainment</a></li>
-	  <li><a href="#ar12">Schools and Education</a></li>
-	  <li><a href="#ar13">Travel and Tourism</a></li>
-	</ul>
-
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- KANAN -->
-  <div style="width:45%">
-
-    <h2>INGGRIS</h2>
-
-    <ul>
-      <li><a href="#bb1">Contact Data</a></li>
-      <li><a href="#bb2">Female Name</a></li>
-      <li><a href="#bb3">Male Name</a></li>
-      <li><a href="#bb4">Business Name</a></li>
-
-      <ul>
-	<li><a href="#qw1">Banking Finance Insurance</a></li>
-	<li><a href="#qw2">Faith and Worship</a></li>
-	<li><a href="#qw3">Food and Beverages</a></li>
-	<li><a href="#qw4">Healthcare</a></li>
-	<li><a href="#qw5">Content Media and Entertainment</a></li>
-	<li><a href="#qw6">Other</a></li>
-	<li><a href="#qw7">Schools and Education</a></li>
-	<li><a href="#qw8">Travel and Tourism</a></li>
-	<li><a href="#qw9">Beauty</a></li>
-	<li><a href="#qw10">Fashion and General Apparel</a></li>
-	<li><a href="#qw11">General Retail</a></li>
-	<li><a href="#qw12">Marketing, Advertising, Design, and PR</a></li>
-	<li><a href="#qw13">Not-for-profits</a></li>
-	<li><a href="#qw14">Real Estate, Rental, and Public Spaces</a></li>
-	<li><a href="#qw15">Technology and Software</a></li>
-	<li><a href="#qw16">Wellness, Fitness, and Lifestyle</a></li>
-      </ul>
-
-    </ul>
-
-  </div>
-
+<div style="font-size:30px">
+  <center><h1><b>KANPA IPSUM</b></h1></center>
 </div>
 
 
-</div>
+  <!-- DAFTAR ISI STRUKTUR SATU KOLOM KE BAWAH (SAMPING KIRI) -->
+  <div style="max-width: 500px; margin-bottom: 40px;">
+    
+    <!-- DROPDOWN KETENTUAN -->
+    <details>
+      <summary>Ketentuan Kanpa</summary>
+      <ul>
+        <li><a href="#jk1">Ketentuan ukuran font</a></li>
+        <li><a href="#jk2">Format tanggal, waktu dan harga</a></li>
+        <li><a href="#jk3">Penghitung metadata</a></li>
+        <li><a href="#jk4">Pengacak metadata</a></li>
+      </ul>
+    </details>
+
+    <!-- DROPDOWN INDONESIA -->
+    <details>
+      <summary>Konten INDONESIA</summary>
+      <ul>
+        <li><a href="#b1">Data Kontak</a></li>
+        <li><a href="#b2">Nama Wanita</a></li>
+        <li><a href="#b3">Nama Pria</a></li>
+        <li><a href="#b4">Nama Bisnis</a></li>
+        <ul>
+          <li><a href="#as1">Perbankan, keuangan, dan asuransi</a></li>
+          <li><a href="#as2">Agama dan peribadatan</a></li>
+          <li><a href="#as3">Makanan dan Minuman</a></li>
+          <li><a href="#as4">Pelayanan Kesehatan</a></li>
+          <li><a href="#as5">Properti, komersial, retail dan ruang publik</a></li>
+          <li><a href="#as6">Teknologi dan perangkat lunak</a></li>
+          <li><a href="#as7">Kesehatan, kebugaran dan gaya hidup</a></li>
+          <li><a href="#as8">Kecantikan</a></li>
+          <li><a href="#as9">Fashion/pakaian</a></li>
+          <li><a href="#as10">Ritel umum</a></li>
+          <li><a href="#as11">Pemasaran, periklanan, desain, dan humas</a></li>
+          <li><a href="#as12">Sekolah dan pendidikan</a></li>
+          <li><a href="#as13">Perjalanan dan pariwisata</a></li>
+        </ul>
+      </ul>
+    </details>
+
+    <!-- DROPDOWN INGGRIS -->
+    <details>
+      <summary>Konten INGGRIS</summary>
+      <ul>
+        <li><a href="#bb1">Contact Data</a></li>
+        <li><a href="#bb2">Female Name</a></li>
+        <li><a href="#bb3">Male Name</a></li>
+        <li><a href="#bb4">Business Name</a></li>
+        <ul>
+          <li><a href="#qw1">Banking Finance Insurance</a></li>
+          <li><a href="#qw2">Faith and Worship</a></li>
+          <li><a href="#qw3">Food and Beverages</a></li>
+          <li><a href="#qw4">Healthcare</a></li>
+          <li><a href="#qw5">Content Media and Entertainment</a></li>
+          <li><a href="#qw6">Other</a></li>
+          <li><a href="#qw7">Schools and Education</a></li>
+          <li><a href="#qw8">Travel and Tourism</a></li>
+          <li><a href="#qw9">Beauty</a></li>
+          <li><a href="#qw10">Fashion and General Apparel</a></li>
+          <li><a href="#qw11">General Retail</a></li>
+          <li><a href="#qw12">Marketing, Advertising, Design, and PR</a></li>
+          <li><a href="#qw13">Not-for-profits</a></li>
+          <li><a href="#qw14">Real Estate, Rental, and Public Spaces</a></li>
+          <li><a href="#qw15">Technology and Software</a></li>
+          <li><a href="#qw16">Wellness, Fitness, and Lifestyle</a></li>
+        </ul>
+      </ul>
+    </details>
+
+    <!-- DROPDOWN ARAB -->
+    <details>
+      <summary>Konten ARAB</summary>
+      <ul>
+        <li><a href="#bbb1">Contact Data</a></li>
+        <li><a href="#bbb2">Female Name</a></li>
+        <li><a href="#bbb3">Male Name</a></li>
+        <li><a href="#bbb4">Business Name</a></li>
+        <ul>
+          <li><a href="#ar1">Banking, Finance, and Insurance</a></li>
+          <li><a href="#ar2">Fashion and General Clothing</a></li>
+          <li><a href="#ar3">General Retail</a></li>
+          <li><a href="#ar4">Marketing, Advertising, Design and Public Relations</a></li>
+          <li><a href="#ar5">Real Estate, Commercial and Public Places and Rental Places</a></li>
+          <li><a href="#ar6">Technology and Software</a></li>
+          <li><a href="#ar7">Wellness, Fitness and Lifestyle</a></li>
+          <li><a href="#ar8">Beauty</a></li>
+          <li><a href="#ar9">Food and Beverages</a></li>
+          <li><a href="#ar10">Health Care</a></li>
+          <li><a href="#ar11">Content, Media and Entertainment</a></li>
+          <li><a href="#ar12">Schools and Education</a></li>
+          <li><a href="#ar13">Travel and Tourism</a></li>
+        </ul>
+      </ul>
+    </details>
+
+  </div>
   
 <table border="1" cellspacing="0" cellpadding="7">
   <center><h2 id="jk1">Ketentuan Ukuran Font</h2></center>
@@ -664,7 +734,6 @@ window.addEventListener("scroll", function() {
     <td>ID Card</td>
     <td>50 × 85 mm</td>
     <td>4 px</td>
-  </tr>
   </tr>
     <tr>
     <td>Lanyard</td>
@@ -706,13 +775,56 @@ window.addEventListener("scroll", function() {
     <td>14 × 18 in</td>
     <td>16 px</td>
   </tr>
-
-
 </table>
+
 <br>
   <center><h2 id="jk2">Format Tanggal, Waktu dan Harga</h2></center>
-  <center><p>Jika gambar tidak tampil, silahkan <a href="https://drive.google.com/file/d/1hzSihg4dqofqnhWusYuujS9JUk6po-AA/view?usp=sharing" target="_blank">Klik Ini</a></p></center>
-  <center><img src="https://i.ibb.co.com/0yJdkJ4B/Canva-Ipsum.png" width="600" height="270"></center>
+
+  <!-- SLIDER KETENTUAN DENGAN TOMBOL DI SAMPING DAN KETERANGAN DI ATAS -->
+  <div class="slider-outer-container">
+    
+    <!-- Keterangan Bahasa Terkini (Dinamis via JS) -->
+    <div class="slide-label-top" id="currentSlideLabel">Indonesia</div>
+    
+    <div class="slider-flex-wrapper">
+      <!-- Tombol Kiri di Samping -->
+      <button class="slider-side-btn" onclick="moveSlide(-1)">❮</button>
+      
+      <!-- Container Gambar Slider -->
+      <div class="slider-container">
+        <div class="slider-wrapper" id="sliderWrapper">
+          <!-- Slide 1: Indonesia -->
+          <div class="slide">
+            <img src="https://i.ibb.co.com/0yJdkJ4B/Canva-Ipsum.png" alt="Ketentuan Indonesia" onclick="zoomImage(this)">
+          </div>
+          <!-- Slide 2: Inggris -->
+          <div class="slide">
+            <img src="https://i.ibb.co.com/0yJdkJ4B/Canva-Ipsum.png" alt="Ketentuan Inggris" onclick="zoomImage(this)"> 
+          </div>
+          <!-- Slide 3: Arab -->
+          <div class="slide">
+            <img src="https://i.ibb.co.com/0yJdkJ4B/Canva-Ipsum.png" alt="Ketentuan Arab" onclick="zoomImage(this)">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tombol Kanan di Samping -->
+      <button class="slider-side-btn" onclick="moveSlide(1)">❯</button>
+    </div>
+    
+    <!-- Indikator Bulat Slider -->
+    <div class="slider-dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+  </div>
+
+<!-- ELEMENT POPUP LIGHTBOX (ZOOM GAMBAR) -->
+<div id="imageLightbox" class="lightbox-overlay" onclick="closeZoom()">
+  <span class="lightbox-close" onclick="closeZoom()">&times;</span>
+  <img class="lightbox-content" id="zoomedImage" onclick="event.stopPropagation()">
+</div>
 
 <br><br>
 
@@ -790,9 +902,9 @@ window.addEventListener("scroll", function() {
 <tr><td>Email</td><td>hello@reallygreatsite.com</td><td><button onclick="copyCustom('hello@reallygreatsite.com')">Copy</button></td></tr>
 <tr><td>Medsos</td><td>@reallygreatsite</td><td><button onclick="copyCustom('@reallygreatsite')">Copy</button></td></tr>
 <tr><td>Address</td><td>123 Anywhere St., Any City, ST 12345<br>123 Anywhere St., Any City</td><td><button onclick="copyCustom('123 Anywhere St., Any City, ST 12345')">Copy 1</button><button onclick="copyCustom('123 Anywhere St., Any City')">Copy 2</button></td></tr>
-<tr><td>Kartu Kredit (16 digit) </td><td id="id7">0123 4567 8901 2345</td><td><button onclick="copyText('id7')">Copy</button></td></tr>
-<tr><td>No Faktur (3-5 digit) </td><td id="id8">01234</td><td><button onclick="copyText('id8')">Copy</button></td></tr>
-<tr><td>No Rekening (12 digit) </td><td id="id9">0123 4567 8901</td><td><button onclick="copyText('id9')">Copy</button></td></tr>
+<tr><td>Kartu Kredit (16 digit) </td><td id="id7_en">0123 4567 8901 2345</td><td><button onclick="copyText('id7_en')">Copy</button></td></tr>
+<tr><td>No Faktur (3-5 digit) </td><td id="id8_en">01234</td><td><button onclick="copyText('id8_en')">Copy</button></td></tr>
+<tr><td>No Rekening (12 digit) </td><td id="id9_en">0123 4567 8901</td><td><button onclick="copyText('id9_en')">Copy</button></td></tr>
 </table>
 
 <div class="note">
@@ -805,7 +917,6 @@ window.addEventListener("scroll", function() {
 <table id="en_pria"></table>
 <h2 id="bb4">Business Name</h2>
 <table id="en_bisnis"></table>
-<h2 id=""></h2>
 
 
 <br><br>
@@ -819,8 +930,8 @@ window.addEventListener("scroll", function() {
 <tr><td>Email</td><td>hello@reallygreatsite.com</td><td><button onclick="copyCustom('hello@reallygreatsite.com')">Copy</button></td></tr>
 <tr><td>Social Media</td><td>@moke3gameel</td><td><button onclick="copyCustom('@moke3gameel')">Copy</button></td></tr>
 <tr><td>Address</td><td> شارع 8، حي الزهراء، مدينة النور، الوطن العربي، 12345</td><td><button onclick="copyCustom(' شارع 8، حي الزهراء، مدينة النور، الوطن العربي، 12345')">Copy</button></td></tr>
-<tr><td>No Rekening</td><td id="id8">MENA12 3456 7890 1234 5678 9012 </td><td><button onclick="copyText('id8')">Copy</button></td></tr>
-<tr><td>Nomor (14 digit) </td><td id="id9">12239051400045</td><td><button onclick="copyText('id9')">Copy</button></td></tr>
+<tr><td>No Rekening</td><td id="id8_ar">MENA12 3456 7890 1234 5678 9012 </td><td><button onclick="copyText('id8_ar')">Copy</button></td></tr>
+<tr><td>Nomor (14 digit) </td><td id="id9_ar">12239051400045</td><td><button onclick="copyText('id9_ar')">Copy</button></td></tr>
 </table>
 
 <div class="note">
@@ -833,13 +944,69 @@ window.addEventListener("scroll", function() {
 <table id="pria_ar"></table>
 <h2 id="bbb4">Business Name</h2>
 <table id="bisnis_ar"></table>
-<h2 id=""></h2>
 
 <script>
+function toast(){
+  let t = document.getElementById('toast');
+  if(!t) return;
+
+  t.style.opacity = 1;
+  t.style.transform = "translateY(0)";
+
+  setTimeout(()=>{
+    t.style.opacity = 0;
+    t.style.transform = "translateY(20px)";
+  }, 1500);
+}
+function copyText(id){navigator.clipboard.writeText(document.getElementById(id).innerText);toast()}
+function copyCustom(text){navigator.clipboard.writeText(text);toast()}
+function render(list,id){let t=document.getElementById(id);list.forEach(n=>{let p=n.split(' ');t.innerHTML+=`<tr><td>${n}</td><td><button onclick="copyCustom('${n}')">Full</button><button onclick="copyCustom('${p[0]}')">Front</button><button onclick="copyCustom('${p.slice(1).join(' ')}')">Back</button></td></tr>`})}
+let hasilText = ""; 
+
+function hitungMetadata(){
+  let input = document.getElementById("inputMeta").value;
+
+  let data = input.split(",")
+    .map(x => x.trim())
+    .filter(x => x !== "");
+
+  document.getElementById("jumlahMeta").innerText = data.length;
+}
+
+function copyMetadata(){
+  let input = document.getElementById("inputMeta").value;
+
+  let data = input.split(",")
+    .map(x => x.trim())
+    .filter(x => x !== "");
+
+  let hasil = data.join(", ");
+
+  navigator.clipboard.writeText(hasil);
+
+  toast("Metadata berhasil disalin");
+}
+function copyAcak(){
+  if(!hasilAcakText) return;
+  navigator.clipboard.writeText(hasilAcakText);
+  toast("Hasil acakan berhasil disalin");
+}
+let timer;
+
+window.addEventListener("scroll", function() {
+  let btn = document.getElementById("backToTop");
+
+  btn.style.display = "block";
+
+  clearTimeout(timer);
+
+  timer = setTimeout(() => {
+    btn.style.display = "none";
+  }, 1500);
+});
 
 const idWanita=["Adinda Fitria","Aruna Pricilla","Brenda Soetjipto","Bunga Kusuma","Cindy Savira","Devina Garini","Elisa Bong","Fathia Sabrina","Franca Mutia","Irina Wibowo","Karmila Merona","Katrin Boenardi","Meggya Ayunda","Melani Wijaya","Ratna Ardiko","Renita Maeve","Sabrina Awanis","Sheila Ozora","Silkria Agustin","Tasya Safirah","Zaneta Destiana"];
 const idPria=["Ade Mubarak","Aditya Ramlan","Adrian Prasetya","Azadi Nugroho","Baskara Lim","Calvin Tariga","Denny Yuwono","Destian Lukito","Eka Wira","Elan Waradhipa","Eriko Ferdiansyah","Felix Sanjaya","Gerald Prabu","Ivan Hendrata","Jeff Widjojo","Kevin Pratama","Latif Mulya","Lorenzo Agung","Lucas Purwanto","Mahawira Wikrama","Michael Tjioe","Omar Sinaga","Raden Aji","Ricky Pebriyanto","Rico Rahadian","Sammy Hafeez","Virendra Hutama","Zyandru Tham"];
-
 
 render(idWanita,'id_wanita');render(idPria,'id_pria');
 
@@ -860,19 +1027,15 @@ const idBisnis={
 };
 
 let b = document.getElementById('id_bisnis');
-
 let index = 1;
 
 for (let k in idBisnis) {
-
   let catId = "as" + index++;
-
   b.innerHTML += `
     <tr id="${catId}">
       <td class="category" colspan="2">${k}</td>
     </tr>
   `;
-
   idBisnis[k].forEach(n =>
     b.innerHTML += `
       <tr>
@@ -888,22 +1051,18 @@ const enPria=["Adam Fletcher","Ben Harrington","Callum Price","Daniel Morton","E
 
 render(enWanita,'en_wanita');render(enPria,'en_pria');
 
-const enBisnis={"Banking Finance Insurance":["Wealth","Wealth Bank","Wealth Banking","Elliot&Mater Bank","Elliot&Mater Financials","Elliot&Mater Insurance","Secure Financial Services","Intelligent Bank","Legacy Banking","Legacy Financials","Legacy Insurance","Savvy Bank","Savvy Finance","Savvy Financial Services","Noble Insurance","Noble Bank","Noble Banking","Prosper Bank","Prosper Finance","Prosper Insurance","Fortune Banking","Fortune Insurance","Fortune Financial Services","Worth Bank","Worth Insurance","Worth Financials"],"Faith and Worship":["Worship Sanctuary","Sacred Chapel","Humble Ministry","Sacred Temple","Worship Space","Spiritual Shrine","Meditation Place","Wisdom Hall","Enlightenment Monastery"],"Food and Beverages":["Harvest","Harvest Grocer","Harvest Kitchen","Harvest Restaurant","Pantry","Crave","Crave Restaurant","Crave Diner","Tasty Snacks","Feast","Rooted","Savor","Gathered","Artsy Cafe","Golden Bite","Pure Spoon","Every Crumb","Daily Harvest","Chopify Burger","Healthy Meals","Healthy Bites","Fresh Bakery","Fresh Pantry","Market Kitchen","Good Food Co","Everyday Provisions","Farm & Table","The Local Kitchen","Corner Café","Table Eight","Open House Dining","Common Room Café","Market Street Eatery"],"Healthcare":["Thrive","Vital Healthcare","Vital Wellness Center","Vital Clinic","Vital Hospital","Gentle Healthcare","Gentle Wellness Center","Gentle Clinic","Gentle Hospital","General Healthcare","General Wellness Center","General Clinic","General Hospital","Primary Healthcare","Primary Wellness Center","Primary Clinic","Primary Hospital","Bright Clinic","Holistic Care","Open Care Network","Core Health Systems","Healing Haven Hospital","Wellness Medical Group","Vital Point Health Center","Health Nest Family Practice"],"Content Media and Entertainment":["Imprint Edition","Zine Publishing","Story Media","Folio Publishing","Premium Media Group","Concept Media","Abstract Multimedia","Public Press","The Reporter","Open Pages","Dispatch","Daily Bulletin","Weekly Observer","Trend Media","Content Publishing Group","Hype Media","Stellar Studio","Dynamic Network","Citywide Media","Northside Publishing","Modern Press","Open Channel","Common Voice Media","Signal House"],"Other":["Northline Group","Union Consulting","Meridian Services","Core Solutions","Pathway Partners","Framework Partners"],"Schools and Education":["Little Explorers Academy","Little Explorers Learning Center","Little Explorers Play School","North Academy","North Primary School","North School","North Elementary School","North High School","North Secondary School","North University","North College","South Academy","South Primary School","South School","South Elementary School","South High School","South Secondary School","South University","South College","West Academy","West Primary School","West School","West Elementary School","West High School","West Secondary School","West University","West College","East Academy","East Primary School","East School","East Elementary School","East High School","East Secondary School","East University","East College","Northwest Academy","Northwest Primary School","Northwest School","Northwest Elementary School","Northwest High School","Northwest Secondary School","Northwest University","Northwest College","Southwest Academy","Southwest Primary School","Southwest School","Southwest Elementary School","Southwest High School","Southwest Secondary School","Southwest University","Southwest College","Northeast Academy","Northeast Primary School","Northeast School","Northeast Elementary School","Northeast High School","Northeast Secondary School","Northeast University","Northeast College","Southeast Academy","Southeast Primary School","Southeast School","Southeast Elementary School","Southeast High School","Southeast Secondary School","Southeast University","Southeast College","Western Academy","Western Primary School","Western School","Western Elementary School","Western High School","Western Secondary School","Western University","Western College","Eastern Academy","Eastern Primary School","Eastern School","Eastern Elementary School","Eastern High School","Eastern Secondary School","Eastern University","Eastern College","Northern Academy","Northern Primary School","Northern School","Northern Elementary School","Northern High School","Northern Secondary School","Northern University","Northern College","Southern Academy","Southern Primary School","Southern School","Southern Elementary School","Southern High School","Southern Secondary School","Southern University","Southern College","Oakfield Primary School","Meadowbrook Primary School","Willow Lane Primary School","Rosewood Primary School","Greenway Primary School","Brookside Primary School","Hillcrest Primary School","Sunnyfields Primary School","Maple Grove Primary School","Chestnut Hill Primary School","Foxglove Primary School","Birchwood Primary School","Appleton Primary School","Cloverfields Primary School","Fernbank Primary School","Ivybridge Primary School","Pinemoor Primary School","Hazelbrook Primary School","Bluebell Primary School","Elmstead Primary School","Westbrook Secondary School","Ridgeway High School","Northfield Community School","Eastgate Secondary School","Brookvale High School","Parklands School","Stonebridge School","Greenfields School","Southbrook Secondary School","Moorland High School","Brookfield High School","Westvale Secondary School","Ashdown School","Kingsford High School","Redfield Secondary School","Fairlands School","Northmoor High School","Valley Ridge School","Stonefield High School","Parkview Secondary School","Oakridge Academy","Riverfield Academy","Hillview Academy","Brookstone Academy","Meadowcroft Academy","Northgate Academy","Silverdale Academy","Ashford School","Linden House School","Hawthorne School","Cedar Grove School","Kingswell School","Fairview School","University of Westbridge","University of Northvale","University of Eastborough","University of Southford","University of Greenhill","University of Brookminster","University of Stonebridge","University of Fairchester","University of Westfield","Northgate University","City of Meadowfield University","University of Parkside","University of Hillview","Central Valley University","University of Lakeside","Greenfield University","Oakridge University","Brookstone University","Silvermere University","University of Ashford Vale","Clearview University","Northbridge University","Riverford University","Westbrook College","Northvale College","Riverside College","University of Parklands","Meadowfield Metropolitan University","Greenhill College","Stonebridge College","Brooklands College","Greenfield College","Clearview College","Lakeside College","Woodlands College","Fieldstone College","Springvale College","Glenmore College","Westwood College"],"Travel and Tourism":["First Landing","First Landing Travel and Tours","Skyward Journeys","Skyward Journeys Airlines","Open Horizon","Open Horizon Tours","Escape","Escape Resort & Spa","Drift","Drift Bed & Breakfast","Voyage","Voyage Airlines","Harbor","Harbor Tours","Global Air","Worldwide Airlines","Vacation Travel Agency","Vacation Inn","Vacation Lodge","Cozy Stay Inn","Cozy Stay Lodge","Cozy Bed & Breakfast","Dream Travel and Tours","Dream Travel Agency","Ultimate Tours","Ultimate Hotel","Ultimate Resort & Spa","Luxe Resort & Spa","Luxe Hotel","Premium Travel","Premium Hotel"],"Beauty":["Clean Beauty","Radiant Beauty","Pure Essentials","Fresh Makeup","Luxe Makeup","Glam Cosmetics","Glam Makeup","Dewy Makeup","Velvet Cosmetics","Pop Cosmetics","Radiant Skincare","Simple Skincare","Gentle Skin Essentials","Posh Salon","Posh Parlor","Luxe Salon","Luxe Parlor","Modern Salon & Spa","Urban Salon & Spa","Urban Barbers","Luxe Hair Studio","Pure & Simple Beauty","Glow Studio","Everyday Skincare","Clean Beauty Store","Fresh Face Makeup","Bare Beauty Shop","Pure Makeup","Easy Beauty","Everyday Beauty Store","Skin & Makeup","The Beauty Shop","Beauty Essentials"],"Fashion and General Apparel":["Silhouette","Style","Flair","Refined","Wearable","Detail","Palette","Iconic","Signature Style","Tailor Made","Fresh Threads","Timeless Silhouettes","Classic Threads","Modern Form","True Fit","Fresh Fits","Daily Wear","Styled Well","Wardrobe Wear","Modern Thread","Citywear Collective","Everyday Edit","Plainform","Street & Stitch","Current Apparel"],"General Retail":["Metro Markets","Trendy Market","Trendy Merch","Variety Market","Variety Supermarket","Variety Store","Variety Merchandise","Assorted Market","Assorted Supermarket","Assorted Store","Assorted Merchandise","Gateway General Store","Cornerstone Retail","Main Market","Main Supermarket","Main Store","Main Merchandise","Fashion Foundry","Premier General Store","Valley Commerce","Fusion Markets","Central Supply Co.","Quality Marketplace","Wares","Highstreet Goods","Everyday Market","Town & Co","Local Essentials","Corner Retail","Union Stores"],"Marketing, Advertising, Design, and PR":["Impact Inc","Creative Collective","Creative Lab","Creative Studio + Lab","Dynamic Agency","Visionary Studio","Visionary PR","Bold Marketing","Bold Design Studio","Collab Studio","Vivid Design","Vivid Marketing","Insight Lab","Brightside Studio","Fieldwork Creative","Union & Co","Openform Agency","Plainview Marketing","Studio North"],"Not-for-profits":["Learning Path","Shelter Space","Art Access","Future Leaders","Wildlife Watch","Elder Care","Senior Support","Relief Ready","Community Kitchen","Shelter Aid","Scholar’s Fund"],"Real Estate, Commercial, Rental, and Public Spaces":["Realty","Dwell","Dwell Realty","Dwell Properties","Land","Land Properties","Land Property Management","Brick","Brick Realty","Nest","Nest Realty","Roof","Roof Real Estate","Move","Move Real Estate","Urban","Urban Properties","Home","Home Realty","Property","Space","Space Properties","Place","Estate","Estate Property Management","Block","Block Realty","Key","Key Realty"],"Technology and Software":["Byte","Circuit","Circuit Systems","Circuit Networks","Gravity","Gravity Soft","Gravity Tech","Cloudlet","Cloudlet Tech","Cloudlet Systems","Elevate","Vertex","Vertex Systems","Innovation","Innovation Systems","Innovation Hub","Streamline","Streamline Soft","Streamline Systems","Mode AI","Meshwork","Forge"],"Wellness, Fitness, and Lifestyle":["Thriving Wellness","Nourished Life","Fit Lifestyle","Whole Wellness","Momentum Gym","Bold Living","Power Fitness","Core & Balance Pilates","Energized","Balanced Path","Clean Living Co","Active Spirit","Intentional Movement Studio","Daily Living Co","Simple Spaces","Home & Habit","Modern Living Group","Life Edit","The Living Company"]}
+const enBisnis={"Banking Finance Insurance":["Wealth","Wealth Bank","Wealth Banking","Elliot&Mater Bank","Elliot&Mater Financials","Elliot&Mater Insurance","Secure Financial Services","Intelligent Bank","Legacy Banking","Legacy Financials","Legacy Insurance","Savvy Bank","Savvy Finance","Savvy Financial Services","Noble Insurance","Noble Bank","Noble Banking","Prosper Bank","Prosper Finance","Prosper Insurance","Fortune Banking","Fortune Insurance","Fortune Financial Services","Worth Bank","Worth Insurance","Worth Financials"],"Faith and Worship":["Worship Sanctuary","Sacred Chapel","Humble Ministry","Sacred Temple","Worship Space","Spiritual Shrine","Meditation Place","Wisdom Hall","Enlightenment Monastery"],"Food and Beverages":["Harvest","Harvest Grocer","Harvest Kitchen","Harvest Restaurant","Pantry","Crave","Crave Restaurant","Crave Diner","Tasty Snacks","Feast","Rooted","Savor","Gathered","Artsy Cafe","Golden Bite","Pure Spoon","Every Crumb","Daily Harvest","Chopify Burger","Healthy Meals","Healthy Bites","Fresh Bakery","Fresh Pantry","Market Kitchen","Good Food Co","Everyday Provisions","Farm & Table","The Local Kitchen","Corner Café","Table Eight","Open House Dining","Common Room Café","Market Street Eatery"],"Healthcare":["Thrive","Vital Healthcare","Vital Wellness Center","Vital Clinic","Vital Hospital","Gentle Healthcare","Gentle Wellness Center","Gentle Clinic","Gentle Hospital","General Healthcare","General Wellness Center","General Clinic","General Hospital","Primary Healthcare","Primary Wellness Center","Primary Clinic","Primary Hospital","Bright Clinic","Holistic Care","Open Care Network","Core Health Systems","Healing Haven Hospital","Wellness Medical Group","Vital Point Health Center","Health Nest Family Practice"],"Content Media and Entertainment":["Imprint Edition","Zine Publishing","Story Media","Folio Publishing","Premium Media Group","Concept Media","Abstract Multimedia","Public Press","The Reporter","Open Pages","Dispatch","Daily Bulletin","Weekly Observer","Trend Media","Content Publishing Group","Hype Media","Stellar Studio","Dynamic Network","Citywide Media","Northside Publishing","Modern Press","Open Channel","Common Voice Media","Signal House"],"Other":["Northline Group","Union Consulting","Meridian Services","Core Solutions","Pathway Partners","Framework Partners"],"Schools and Education":["Little Explorers Academy","Little Explorers Learning Center","Little Explorers Play School","North Academy","North Primary School","North School","North Elementary School","North High School","North Secondary School","North University","North College","South School","South Elementary School","South High School","South Secondary School","South University","South College","West Academy","West Primary School","West School","West Elementary School","West High School","West Secondary School","West University","West College","East Academy","East Primary School","East School","East Elementary School","East High School","East Secondary School","East University","East College","Northwest Academy","Northwest Primary School","Northwest School","Northwest Elementary School","Northwest High School","Northwest Secondary School","Northwest University","Northwest College","Southwest Academy","Southwest Primary School","Southwest School","Southwest Elementary School","Southwest High School","Southwest Secondary School","Southwest University","Southwest College","Northeast Academy","Northeast Primary School","Northeast School","Northeast Elementary School","Northeast High School","Northeast Secondary School","Northeast University","Northeast College","Southeast Academy","Southeast Primary School","Southeast School","Southeast Elementary School","Southeast High School","Southeast Secondary School","Southeast University","Southeast College","Western Academy","Western Primary School","Western School","Western Elementary School","Western High School","Western Secondary School","Western University","Western College","Eastern Academy","Eastern Primary School","Eastern School","Eastern Elementary School","Eastern High School","Eastern Secondary School","Eastern University","Eastern College","Northern Academy","Northern Primary School","Northern School","Northern Elementary School","Northern High School","Northern Secondary School","Northern University","Northern College","Southern Academy","Southern Primary School","Southern School","Southern Elementary School","Southern High School","Southern Secondary School","Southern University","Southern College","Oakfield Primary School","Meadowbrook Primary School","Willow Lane Primary School","Rosewood Primary School","Greenway Primary School","Brookside Primary School","Hillcrest Primary School","Sunnyfields Primary School","Maple Grove Primary School","Chestnut Hill Primary School","Foxglove Primary School","Birchwood Primary School","Appleton Primary School","Cloverfields Primary School","Fernbank Primary School","Ivybridge Primary School","Pinemoor Primary School","Hazelbrook Primary School","Bluebell Primary School","Elmstead Primary School","Westbrook Secondary School","Ridgeway High School","Northfield Community School","Eastgate Secondary School","Brookvale High School","Parklands School","Stonebridge School","Greenfields School","Southbrook Secondary School","Moorland High School","Brookfield High School","Westvale Secondary School","Ashdown School","Kingsford High School","Redfield Secondary School","Fairlands School","Northmoor High School","Valley Ridge School","Stonefield High School","Parkview Secondary School","Oakridge Academy","Riverfield Academy","Hillview Academy","Brookstone Academy","Meadowcroft Academy","Northgate Academy","Silverdale Academy","Ashford School","Linden House School","Hawthorne School","Cedar Grove School","Kingswell School","Fairview School","University of Westbridge","University of Northvale","University of Eastborough","University of Southford","University of Greenhill","University of Brookminster","University of Stonebridge","University of Fairchester","University of Westfield","Northgate University","City of Meadowfield University","University of Parkside","University of Hillview","Central Valley University","University of Lakeside","Greenfield University","Oakridge University","Brookstone University","Silvermere University","University of Ashford Vale","Clearview University","Northbridge University","Riverford University","Westbrook College","Northvale College","Riverside College","University of Parklands","Meadowfield Metropolitan University","Greenhill College","Stonebridge College","Brooklands College","Greenfield College","Clearview College","Lakeside College","Woodlands College","Fieldstone College","Springvale College","Glenmore College","Westwood College"],"Travel and Tourism":["First Landing","First Landing Travel and Tours","Skyward Journeys","Skyward Journeys Airlines","Open Horizon","Open Horizon Tours","Escape","Escape Resort & Spa","Drift","Drift Bed & Breakfast","Voyage","Voyage Airlines","Harbor","Harbor Tours","Global Air","Worldwide Airlines","Vacation Travel Agency","Vacation Inn","Vacation Lodge","Cozy Stay Inn","Cozy Stay Lodge","Cozy Bed & Breakfast","Dream Travel and Tours","Dream Travel Agency","Ultimate Tours","Ultimate Hotel","Ultimate Resort & Spa","Luxe Resort & Spa","Luxe Hotel","Premium Travel","Premium Hotel"],"Beauty":["Clean Beauty","Radiant Beauty","Pure Essentials","Fresh Makeup","Luxe Makeup","Glam Cosmetics","Glam Makeup","Dewy Makeup","Velvet Cosmetics","Pop Cosmetics","Radiant Skincare","Simple Skincare","Gentle Skin Essentials","Posh Salon","Posh Parlor","Luxe Salon","Luxe Parlor","Modern Salon & Spa","Urban Salon & Spa","Urban Barbers","Luxe Hair Studio","Pure & Simple Beauty","Glow Studio","Everyday Skincare","Clean Beauty Store","Fresh Face Makeup","Bare Beauty Shop","Pure Makeup","Easy Beauty","Everyday Beauty Store","Skin & Makeup","The Beauty Shop","Beauty Essentials"],"Fashion and General Apparel":["Silhouette","Style","Flair","Refined","Wearable","Detail","Palette","Iconic","Signature Style","Tailor Made","Fresh Threads","Timeless Silhouettes","Classic Threads","Modern Form","True Fit","Fresh Fits","Daily Wear","Styled Well","Wardrobe Wear","Modern Thread","Citywear Collective","Everyday Edit","Plainform","Street & Stitch","Current Apparel"],"General Retail":["Metro Markets","Trendy Market","Trendy Merch","Variety Market","Variety Supermarket","Variety Store","Variety Merchandise","Assorted Market","Assorted Supermarket","Assorted Store","Assorted Merchandise","Gateway General Store","Cornerstone Retail","Main Market","Main Supermarket","Main Store","Main Merchandise","Fashion Foundry","Premier General Store","Valley Commerce","Fusion Markets","Central Supply Co.","Quality Marketplace","Wares","Highstreet Goods","Everyday Market","Town & Co","Local Essentials","Corner Retail","Union Stores"],"Marketing, Advertising, Design, and PR":["Impact Inc","Creative Collective","Creative Lab","Creative Studio + Lab","Dynamic Agency","Visionary Studio","Visionary PR","Bold Marketing","Bold Design Studio","Collab Studio","Vivid Design","Vivid Marketing","Insight Lab","Brightside Studio","Fieldwork Creative","Union & Co","Openform Agency","Plainview Marketing","Studio North"],"Not-for-profits":["Learning Path","Shelter Space","Art Access","Future Leaders","Wildlife Watch","Elder Care","Senior Support","Relief Ready","Community Kitchen","Shelter Aid","Scholar’s Fund"],"Real Estate, Commercial, Rental, and Public Spaces":["Realty","Dwell","Dwell Realty","Dwell Properties","Land","Land Properties","Land Property Management","Brick","Brick Realty","Nest","Nest Realty","Roof","Roof Real Estate","Move","Move Real Estate","Urban","Urban Properties","Home","Home Realty","Property","Space","Space Properties","Place","Estate","Estate Property Management","Block","Block Realty","Key","Key Realty"],"Technology and Software":["Byte","Circuit","Circuit Systems","Circuit Networks","Gravity","Gravity Soft","Gravity Tech","Cloudlet","Cloudlet Tech","Cloudlet Systems","Elevate","Vertex","Vertex Systems","Innovation","Innovation Systems","Innovation Hub","Streamline","Streamline Soft","Streamline Systems","Mode AI","Meshwork","Forge"],"Wellness, Fitness, and Lifestyle":["Thriving Wellness","Nourished Life","Fit Lifestyle","Whole Wellness","Momentum Gym","Bold Living","Power Fitness","Core & Balance Pilates","Energized","Balanced Path","Clean Living Co","Active Spirit","Intentional Movement Studio","Daily Living Co","Simple Spaces","Home & Habit","Modern Living Group","Life Edit","The Living Company"]}
 
 let e = document.getElementById('en_bisnis');
-
 let qwIndex = 1;
 
 for (let k in enBisnis) {
-
   let catId = "qw" + qwIndex++;
-
   e.innerHTML += `
     <tr id="${catId}">
       <td class="category" colspan="2">${k}</td>
     </tr>
   `;
-
   enBisnis[k].forEach(n => {
     e.innerHTML += `
       <tr>
@@ -912,31 +1071,25 @@ for (let k in enBisnis) {
       </tr>
     `;
   });
-
 }
 
 const arbWanita=["ساندري فؤاد بشارة","مها عادل غالي","ندى سمير راجب","انجي منير عياد","ماريغ عاطف رمسيس","بستنت ميتنا بشاي","شادية فوزي مجايل","نادية جلال فكرى","نورهان حسن إبراهيم","نيقيين فؤاد فتحى","نهى سامي عبد العاطي","هيام خالد عبد المجيد","مريم عادل راضي","ريم صلاح محمد","سارة عماد صالح","فردية أحمد مهدي","أمنية سعيد مخلوف","منى حاتم صادق","أمينة محمود جمال","كارولين سامي عبد الغفار","منار أسامة عبد التواب","مي شريف عبد الوهاب","أمل نجيب اسكندر","إيمان أحمد كريم","سمر حسين مرضي","آية سامح حليم"];
-
 const arbPria=["خالد أحمد عبد التواب","فريد رؤوف سامي","أيمن محمد صلاح","مصطفى العدوى فريد","محمد أيمن فؤاد","محمود محمد جابر","عمر عبد المنعم سلامة","عمرو وفيق عبد الفتاح","سيف محمد صبحي","دانيال رؤوف حكيم","مايكل رمزي عدلي","شادي عمود عبد النبي","عفط محمود وائل","فوزي جرجس صارر","هاني نظير عبد المسيح","شهاب أحمد فخري","عادل مصطفى حسين","محمد علي رؤوف","مصطفى حسن عبد الله","عمر طارق صلاح","سيف خالد احمد","مايكل فؤاد قناوي","ميناوجيه هشام","فريد عصام يوسف"];
 
 render(arbWanita,'wanita_ar');render(arbPria,'pria_ar');
 
-const arbBisnis={"Banking, Finance, and Insurance":["وادي الكنافة للاستثمار","نوران للاستشارات المالية"],"Fashion and General Clothing":["كوتور كابرو","تصميمات سارة نادي للذهب والأحجار","أورورا ستايل","ستايلش بلس"],"General Retail":["توب كارز للسيارات المستعملة","الدولفين بلس للسيارات","بازار النيل الأزرق للهدايا والتذكارات","مكتبة الأفق"],"Marketing, Advertising, Design and Public Relations":["أثر بروداكشن","إشراقه بروداكشن","موضة براند هاوس","مكتب سعد البحراوي للإعلام والدعاية والإعلان","رؤية بلس للدعاية والتسويق","صدى النيل للتسويق"],"Real Estate, Commercial and Public Places and Rental Places":["الشروق كابيتال","دلتا بلاس للتطوير","أندلس الشرق للتنمية العقارية"],"Technology and Software":["كود لاين","بلو سيركت"],"Wellness, Fitness and Lifestyle":["موشن فيجن","باور موشن فنس","إيقاع الحياة","توارن ويلنس"],"Beauty":["سحر وشيرين بيوتي سنتر","لوتس بلو","أروما مساج آن سبا","بسمة بيوتي نيلز","كوافير فادي و مجدي","حلاق المدينة المنورة"],"Food and Beverages":["مطعم كيرالا للمأكولات الهندية النباتية","دايشتون للشواء الكورية","مطعم صنعاء للمندي","المرجان كافيه","فطاظري الهنا","بيت اللوز","مطعم صحة وعافية","النخلة جروب"],"Health Care":["عيادات ترو هلت المتكاملة"],"Content, Media and Entertainment":["أفلامكو للتصوير والطباعة"],"Schools and Education":["روضة القلوب البريئة","روضة الأجنحة الصغيرة","روضة النجوم المتألفة","روضة الزهور العطرة","روضة المبدعين الصغار","روضة الفرح الدائم","روضة الأمل الوردي","روضة العقول النيرة","روضة الأحلام الكبيرة","روضة براعم الزهرة","روضة الفراشات الطائرة","روضة الزهور المتألقة","روضة النهار المشرق","روضة النجوم اللاعبة","مدرسة الضياء الجديد الابتدائية","مدرسة الرواد الحديثة الابتدائية","مدرسة المتميزون الجدد الابتدائية","مدرسة المعطاء الدائم الابتدائية","مدرسة الوفاء الراشدين الابتدائية","مدرسة الأمل المشرق الجديد الابتدائية","مدرسة التحدي المستمر الابتدائية","مدرسة الإلهام المتجدد الإعدادية","مدرسة النبراس المضئي الإعدادية","مدرسة الإبداع"],"Travel and Tourism":["فندق صنارة المتوسط","نوران جودين تورتز","سما المتحدة ترافيل","رحال جلوبال ترافيل","آفاق الجديدة للسياحة والسفر","المحيط إليبت ترافيل"]}
+const arbBisnis={"Banking, Finance, and Insurance":["وادي الكنافة للاستثمار","نوران للاستشارات المالية"],"Fashion and General Clothing":["كوتور كابرو","تصميمات سارة نادي للذهب والأحجار","أورورا ستايل","ستايلش بلس"],"General Retail":["توب كارز للسيارات المستعملة","الدولفين بلس للسيارات","بازار النيل الأزرق للهدايا والتذكارات","مكتبة الأفق"],"Marketing, Advertising, Design and Public Relations":["أثر بروداكشن","إشراقه بروداكشن","موضة براند هاوس","مكتب سعد البحراوي للإعلام للدعاية والإعلان","رؤية بلس للدعاية والتسويق","صدى النيل للتسويق"],"Real Estate, Commercial and Public Places and Rental Places":["الشروق كابيتال","دلتا بلاس للتطوير","أندلس الشرق للتنمية العقارية"],"Technology and Software":["كود لاين","بلو سيركت"],"Wellness, Fitness and Lifestyle":["موشن فيجن","باور موشن فنس","إيقاع الحياة","توارن ويلنس"],"Beauty":["سحر وشيرين بيوتي سنتر","لوتس بلو","أروما مساج آن سبا","بسمة بيوتي نيلز","كوافير فادي و مجدي","حلاق المدينة المنورة"],"Food and Beverages":["مطعم كيرالا للمأكولات الهندية النباتية","دايشتون للشواء الكورية","مطعم صنعاء للمندي","المرجان كافيه","فطاظري الهنا","بيت اللوز","مطعم صحة وعافية","النخلة جروب"],"Health Care":["عيادات ترو هلت المتكاملة"],"Content, Media and Entertainment":["أفلامكو للتصوير والطباعة"],"Schools and Education":["روضة القلوب البريئة","روضة الأجنحة الصغيرة","روضة النجوم المتألفة","روضة الزهور العطرة","روضة المبدعين الصغار","روضة الفرح الدائم","روضة الأمل الوردي","روضة العقول النيرة","روضة الأحلام الكبيرة","روضة براعم الزهرة","روضة الفراشات الطائرة","روضة الزهور المتألقة","روضة النهار Mشرق الجديد الابتدائية","مدرسة التحدي المستمر الابتدائية","مدرسة الإلهام المتجدد الإعدادية","مدرسة النبراس المضئي الإعدادية","مدرسة الإبداع"],"Travel and Tourism":["فندق صنارة المتوسط","نوران جودين تورتز","سما المتحدة ترافيل","رحال جلوبال ترافيل","آفاق الجديدة للسياحة والسفر","المحيط إليبت ترافيل"]}
 
 let a = document.getElementById('bisnis_ar');
-
 let arIndex = 1;
 
 for (let k in arbBisnis) {
-
   let catId = "ar" + arIndex++;
-
   a.innerHTML += `
     <tr id="${catId}">
       <td class="category" colspan="2">${k}</td>
     </tr>
   `;
-
   arbBisnis[k].forEach(n => {
     a.innerHTML += `
       <tr>
@@ -945,55 +1098,55 @@ for (let k in arbBisnis) {
       </tr>
     `;
   });
-
 }
-
-
 
 let hasilAcakText = "";
 
 function acakMetadata(){
   let input = document.getElementById("acakMetaInput").value;
-
   let data = input.split(",")
     .map(x => x.trim())
     .filter(x => x !== "");
 
   if(data.length === 0) return;
 
-  // 🔵 ambil 1-2
   let firstTwo = data.slice(0,2);
 
-  // 50:50 swap
   if(firstTwo.length === 2 && Math.random() < 0.5){
     firstTwo.reverse();
   }
 
-  // 🔵 ambil sisanya (3 dst)
   let rest = data.slice(2);
 
-  // 🔥 WAJIB SHUFFLE TOTAL (Fisher-Yates)
   for (let i = rest.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [rest[i], rest[j]] = [rest[j], rest[i]];
   }
 
   let hasilArray = [...firstTwo, ...rest];
-
   hasilAcakText = hasilArray.join(", ") + ",";
-
   document.getElementById("hasilAcak").innerText = hasilAcakText;
+}
+
+/* FUNGSI LOCK SCROLL UTAMA SAAT POP-UP AKTIF */
+function toggleBodyScroll(lock) {
+  if (lock) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
 }
 
 function openPopup(id){
   document.getElementById(id).style.display="flex";
+  toggleBodyScroll(true); 
 }
 
 function closePopup(id){
   document.getElementById(id).style.display="none";
+  toggleBodyScroll(false); 
 }
 </script>
-
 
 <!-- OVERLAY -->
 <div id="reviewOverlay"
@@ -1005,8 +1158,6 @@ background:rgba(0,0,0,0.5);
 z-index:9998;
 ">
 </div>
-
-
 
 <!-- POPUP -->
 <div id="reviewPopup"
@@ -1113,11 +1264,13 @@ const thanksPopup = document.getElementById("thanksPopup");
 function openReviewPopup(){
   reviewPopup.style.display = "block";
   reviewOverlay.style.display = "block";
+  toggleBodyScroll(true); 
 }
 
 function closeReviewPopup(){
   reviewPopup.style.display = "none";
   reviewOverlay.style.display = "none";
+  toggleBodyScroll(false); 
 }
 
 function jawabIya(){
@@ -1127,6 +1280,7 @@ function jawabIya(){
   setTimeout(() => {
     thanksPopup.style.display = "none";
     reviewOverlay.style.display = "none";
+    toggleBodyScroll(false);
   }, 3000);
 }
 
@@ -1140,7 +1294,6 @@ function updateInitialPosition(){
 reviewPopup.addEventListener("mouseenter", updateInitialPosition);
 
 document.addEventListener("mousemove", (e) => {
-
   if(!initialRect) return;
 
   const btnX = initialRect.left + initialRect.width/2;
@@ -1166,7 +1319,6 @@ document.addEventListener("mousemove", (e) => {
   if(distanceToEscape < 50){
     noBtn.style.transform = "translateY(0)";
   }
-
 });
 
 const guideData = {
@@ -1175,7 +1327,7 @@ const guideData = {
   title: "Konten yang berpotensi menyakitkan/sensitif",
   contentIntro: "Kekerasan grafis, konten seksual eksplisit, ujaran kebencian atau aktivitas terkait, diskriminasi, konten terlarang (narkoba dan senjata), isu sensitif, saran medis, atau keselamatan. Kami tidak akan menerima hal-hal berikut ke dalam perpustakaan kami atau halaman profil:",
   content: [
-  "Konten NSFS dan NSFW; ketelanjangan/sexual, penggambaran yang tidak pantas atau merendahkan gender apa pun, kekerasan/darah, konten yang memicu trauma",
+  "Konten NSFS and NSFW; ketelanjangan/sexual, penggambaran yang tidak pantas atau merendahkan gender apa pun, kekerasan/darah, konten yang memicu trauma",
   "Gambar yang memicu terkait kesehatan mental (bunuh diri, depresi), kekerasan, serta gangguan makan (eating disorder, body dysmorphia, dll.)",
   "Baik seksualisasi yang realistis maupun tersirat serta pelecehan terhadap gender apa pun",
   "Konten yang ofensif, terlalu seksual, atau stereotip gender, termasuk tokoh publik atau selebriti",
@@ -1203,7 +1355,7 @@ const guideData = {
 "Foto yang menampilkan referensi terhadap merek, baik berupa logo, teks, maupun produk nyata.",
 "Foto dengan tokoh terkenal atau kerumunan dengan wajah yang mudah dikenali, kecuali Anda dapat menyediakan dokumen pelepasan hak/formulir bebas royalti yang sesuai.",
 "Karakter, kartun, figur, atau tokoh terkenal yang mudah dikenali.",
-"Kutipan (dengan atau tanpa atribusi) yang jelas terkait dengan individu, entitas, atau karya berhak cipta, termasuk lirik, film, buku, dan puisi.",
+"Kutipan (dengan atau tanpa atribusi) yang jelas terkait dengan individu, entitas, atau karya berhak cipta, termasuk lirik, film, buku, and puisi.",
 "Keberpihakan politik. Konten yang mendukung atau menentang tokoh politik tertentu dan/atau partai tidak akan diterima."      ]
     },
     {
@@ -1237,7 +1389,7 @@ const guideData = {
 "Template yang mengandung nama atau merek bisnis yang mungkin tidak aman untuk digunakan.",
 "Pastikan teks relevan dengan desain dan terlihat siap digunakan. Jika menggunakan Lorem Ipsum, harap sertakan judul, subjudul, dan teks minimal 20 kata yang relevan dengan desain Anda.",
 "Template yang mengandung kesalahan ejaan, tata bahasa, dan/atau format yang mencolok.",
-"Template yang memuat elemen, video, dan/atau animasi yang tidak sesuai untuk jenis dokumen yang dipilih."
+"Template yang memuat elemen, video, and/atau animasi yang tidak sesuai untuk jenis dokumen yang dipilih."
       ]
     }
   ],
@@ -1321,12 +1473,14 @@ let currentLang = "id";
 function openGuide(){
   document.getElementById("guidePopup").style.display = "block";
   document.getElementById("guideOverlay").style.display = "block";
+  toggleBodyScroll(true); 
   renderGuide();
 }
 
 function closeGuide(){
   document.getElementById("guidePopup").style.display = "none";
   document.getElementById("guideOverlay").style.display = "none";
+  toggleBodyScroll(false); 
 }
 
 function changeLang(lang){
@@ -1339,10 +1493,8 @@ function renderGuide(){
   list.innerHTML = "";
 
   guideData[currentLang].forEach((item, i) => {
-
     list.innerHTML += `
       <div style="margin-bottom:10px;">
-
 	<button onclick="toggleGuide(${i})"
 	style="
 	  width:100%;
@@ -1356,26 +1508,19 @@ function renderGuide(){
 	  justify-content:space-between;
 	  align-items:center;
 	">
-
 	  <span>${item.title}</span>
-
 	  <span id="icon${i}">▶</span>
-
 	</button>
-
 	<div id="g${i}" style="
 	  display:none;
 	  padding:8px;
 	  font-size:13px;
 	">
-
         ${item.contentIntro ? `<p>${item.contentIntro}</p>` : ""}
-
 	  <ul style="margin:0; padding-left:18px;">
-  ${item.content.map(x => `<li>${x}</li>`).join("")}
-</ul>
+        ${item.content.map(x => `<li>${x}</li>`).join("")}
+      </ul>
 	</div>
-
       </div>
     `;
   });
@@ -1387,13 +1532,73 @@ function toggleGuide(i){
 
   if(content.style.display === "block"){
     content.style.display = "none";
-    icon.innerHTML = "▶"; // segitiga ke kanan
+    icon.innerHTML = "▶"; 
   } else {
     content.style.display = "block";
-    icon.innerHTML = "▼"; // segitiga ke bawah
+    icon.innerHTML = "▼"; 
+  }
+}
+
+/* JAVASCRIPT SLIDER KETENTUAN */
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const labelTop = document.getElementById('currentSlideLabel');
+const labelsArray = ["Indonesia", "Inggris", "Arab"];
+
+function showSlide(index) {
+  if (index >= slides.length) {
+    currentSlideIndex = 0;
+  } else if (index < 0) {
+    currentSlideIndex = slides.length - 1;
+  } else {
+    currentSlideIndex = index;
+  }
+  
+  // Menggerakkan slider
+  const wrapper = document.getElementById('sliderWrapper');
+  wrapper.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+  
+  // Update Teks Label di Atas Gambar
+  labelTop.innerText = labelsArray[currentSlideIndex];
+  
+  // Update Dot Active
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[currentSlideIndex].classList.add('active');
+}
+
+function moveSlide(direction) {
+  showSlide(currentSlideIndex + direction);
+}
+
+function currentSlide(index) {
+  showSlide(index);
+}
+
+// Inisialisasi tampilan slide awal
+showSlide(currentSlideIndex);
+
+/* JAVASCRIPT LIGHTBOX (PERBESAR GAMBAR) */
+function zoomImage(element) {
+  const lightbox = document.getElementById('imageLightbox');
+  const zoomedImg = document.getElementById('zoomedImage');
+  
+  zoomedImg.src = element.src;
+  lightbox.style.display = 'flex';
+  toggleBodyScroll(true); // Kunci scroll halaman belakang
+}
+
+function closeZoom() {
+  const lightbox = document.getElementById('imageLightbox');
+  lightbox.style.display = 'none';
+  
+  // Pastikan scroll dilepas jika tidak ada popup lain yang terbuka
+  if(document.getElementById('music').style.display !== 'flex' && 
+     document.getElementById('credit').style.display !== 'flex' &&
+     document.getElementById('guidePopup').style.display !== 'block') {
+    toggleBodyScroll(false);
   }
 }
 </script>
 </body>
 </html>
-
